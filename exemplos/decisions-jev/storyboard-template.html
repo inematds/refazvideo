@@ -1,0 +1,79 @@
+<title>Decisions API vs Jev em PT</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: coluna única de storyboard; cada cena = faixa com fala à esquerda e quadros do vídeo original à direita */
+:root{
+  --bg:#f6f3ee; --panel:#ffffff; --fg:#1d1a16; --muted:#6b6358; --line:#e3dccf;
+  --accent:#b86a00; --accent-soft:#f6e6c8; --cyan:#0b7f8c;
+  --display:"Montserrat",system-ui,sans-serif; --body:"Source Sans 3",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f0d0a; --panel:#1a1713; --fg:#efe8dc; --muted:#a39886; --line:#2e2922;
+  --accent:#f0a830; --accent-soft:#3a2a10; --cyan:#4fc6d3; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f0d0a; --panel:#1a1713; --fg:#efe8dc; --muted:#a39886; --line:#2e2922;
+  --accent:#f0a830; --accent-soft:#3a2a10; --cyan:#4fc6d3; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:17px/1.55 var(--body)}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:32px 64px}
+header{display:grid;gap:10px;margin-bottom:28px}
+.eyebrow{font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font:800 clamp(28px,4.4vw,46px)/1.08 var(--display);margin:0;text-wrap:balance}
+.lede{color:var(--muted);max-width:70ch;margin:0}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;font:13px var(--mono);color:var(--muted)}
+.facts b{color:var(--fg);font-weight:600}
+.note{border-left:3px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:4px;max-width:80ch}
+.scene{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:28px;padding-block:28px;border-top:1px solid var(--line)}
+@media (max-width:820px){.scene{grid-template-columns:1fr}}
+.meta{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.num{font:700 13px var(--mono);color:var(--accent)}
+.chap{font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.src{font:12px var(--mono);color:var(--cyan)}
+h2{font:700 22px/1.2 var(--display);margin:6px 0 12px;text-wrap:balance}
+.speech{margin:0 0 14px;max-width:62ch}
+.speech em{font-style:normal;font-family:var(--mono);font-size:.88em;background:var(--accent-soft);padding:0 4px;border-radius:3px}
+.take{font:600 15px var(--body);color:var(--accent);margin:0 0 10px}
+.labels{display:flex;flex-wrap:wrap;gap:6px}
+.labels span{font:12px var(--mono);border:1px solid var(--line);padding:2px 8px;border-radius:999px;color:var(--muted)}
+.dur{font:12px var(--mono);color:var(--muted);margin-top:10px}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;align-content:start}
+.shots figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.shots img{display:block;width:100%;height:auto}
+.shots figcaption{font:11px var(--mono);color:var(--muted);padding:6px 8px}
+.prim{border:1px dashed var(--line);border-radius:6px;padding:18px;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:14px}
+</style>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Explicavideo v2 · storyboard para aprovação</div>
+  <h1>Decisions API vs Jev, refeito em português</h1>
+  <p class="lede">Base: vídeo de Mark Kashef (YouTube uTU5Ihgl_7Q, 9 min 38 s). Narração reescrita em PT para o avatar e a voz do Nei. Os termos técnicos e as telas ficam como no original.</p>
+  <div class="facts" id="facts"></div>
+  <p class="note">Ainda não foi gerado nada no HeyGen. Esta página mostra o roteiro e os quadros que entram como <code>media</code> (print real com zoom e destaque). Os tempos finais saem da transcrição do avatar.</p>
+</header>
+<main id="scenes"></main>
+<footer>Rosto do apresentador recortado ou desfocado em todos os quadros. Termos mantidos em inglês: Decisions API, predicate, choice, evidence, confidence, refusal, checkout, sign in, tokens, latency e os rótulos das telas.</footer>
+</div>
+<script>
+const SCENES=__SCENES__;
+const IMGS=__IMGS__;
+const MAP=__MAP__;
+const TERMS=["Decisions API","true or false","multiple choice","how much","predicate","Noul","request","GPT-6 Luna","evidence","confidence","API key","choice","instructions","choices","Damaged","No damage reported","Not enough information","refusal","visible damage","no visible damage","cannot assess","website","payments","auth","database","provider","sign in","checkout","full investigation","supported","contradicted","insufficient evidence","answer","open source","multimodal","tokens","name"];
+function esc(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
+function mark(s){let out=esc(s);const sorted=[...TERMS].sort((a,b)=>b.length-a.length);
+  const re=new RegExp("\\b("+sorted.map(t=>t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")\\b","g");
+  return out.replace(re,"<em>$1</em>")}
+let words=0;
+const host=document.getElementById("scenes");
+SCENES.forEach((s,i)=>{
+  const w=s.speech.split(/\s+/).length; words+=w;
+  const shots=(MAP[i]||[]).map(t=>`<figure><img src="${IMGS[t]}" alt="Quadro do vídeo original em ${Math.floor(t/60)}:${String(t%60).padStart(2,"0")}" loading="lazy"><figcaption>original ${Math.floor(t/60)}:${String(t%60).padStart(2,"0")} · media</figcaption></figure>`).join("")
+    || `<div class="prim">Sem print: cena desenhada com primitivos do v2 (bullets em linha + CTA inema.club).</div>`;
+  const el=document.createElement("section");el.className="scene";
+  el.innerHTML=`<div><div class="meta"><span class="num">Cena ${String(i+1).padStart(2,"0")}</span><span class="chap">${esc(s.chapter)} · ${esc(s.kind)}</span></div>
+  <h2>${esc(s.title)}</h2><p class="take">${esc(s.takeaway)}</p><p class="speech">${mark(s.speech)}</p>
+  <div class="labels">${s.labels.map(l=>`<span>${esc(l)}</span>`).join("")}</div>
+  <div class="dur">${w} palavras · ~${Math.round(w/150*60)} s · fonte ${esc(s.source.replace("youtube:uTU5Ihgl_7Q@","original "))}</div></div>
+  <div class="shots">${shots}</div>`;
+  host.appendChild(el)});
+document.getElementById("facts").innerHTML=`<span><b>${SCENES.length}</b> cenas</span><span><b>${words}</b> palavras</span><span>~<b>${(words/150).toFixed(1)}</b> min narrados</span><span>16:9 · avatar Nei · voz INEMA TIME</span><span><b>${Object.keys(IMGS).length}</b> quadros do original</span>`;
+</script>

@@ -1,0 +1,530 @@
+{
+ "block": "pt-b02",
+ "scenes": {
+  "7": {
+   "shots": [
+    {
+     "type": "statement",
+     "at": "Vamos às demonstrações",
+     "text": "Demo 1: só a **Decisions API** lê imagem"
+    },
+    {
+     "type": "bullets",
+     "at": "São fotos de produtos",
+     "title": "TRÊS CATEGORIAS",
+     "layout": "row",
+     "items": [
+      {
+       "text": "visible damage",
+       "icon": "warn",
+       "at": "uma de três"
+      },
+      {
+       "text": "no visible damage",
+       "icon": "check",
+       "at": "no visible damage"
+      },
+      {
+       "text": "cannot assess",
+       "icon": "eye",
+       "at": "ou cannot assess"
+      }
+     ]
+    },
+    {
+     "type": "media",
+     "at": "No fone quebrado",
+     "src": "/home/nmaldaner/projetos/output/explica-uTU5Ihgl_7Q/media/s-297.png",
+     "focus": [
+      0.55,
+      0.5
+     ],
+     "zoom": [
+      1,
+      1.1
+     ],
+     "highlights": [
+      {
+       "x": 0.595,
+       "y": 0.34,
+       "w": 0.14,
+       "h": 0.085,
+       "at": "a resposta é"
+      },
+      {
+       "x": 0.71,
+       "y": 0.755,
+       "w": 0.085,
+       "h": 0.06,
+       "at": "menos de um"
+      }
+     ],
+     "label": "Product damage · **visible damage**"
+    },
+    {
+     "type": "media",
+     "at": "No HD externo",
+     "src": "/home/nmaldaner/projetos/output/explica-uTU5Ihgl_7Q/media/s-309.png",
+     "focus": [
+      0.55,
+      0.5
+     ],
+     "zoom": [
+      1,
+      1.1
+     ],
+     "highlights": [
+      {
+       "x": 0.6,
+       "y": 0.41,
+       "w": 0.15,
+       "h": 0.085,
+       "at": "intacto"
+      }
+     ],
+     "label": "**no visible damage**"
+    },
+    {
+     "type": "media",
+     "at": "na foto da caixa",
+     "src": "/home/nmaldaner/projetos/output/explica-uTU5Ihgl_7Q/media/s-321.png",
+     "focus": [
+      0.55,
+      0.5
+     ],
+     "zoom": [
+      1,
+      1.1
+     ],
+     "highlights": [
+      {
+       "x": 0.6,
+       "y": 0.48,
+       "w": 0.17,
+       "h": 0.11,
+       "at": "caixa fechada"
+      }
+     ],
+     "label": "**cannot assess** · três respostas corretas"
+    }
+   ]
+  },
+  "8": {
+   "shots": [
+    {
+     "type": "statement",
+     "at": "A segunda demonstração",
+     "text": "Demo 2: **Jev × Decisions API** lado a lado"
+    },
+    {
+     "type": "hub",
+     "at": "cinco suspeitos",
+     "center": {
+      "label": "Queda do site",
+      "icon": "warn",
+      "at": "cinco suspeitos"
+     },
+     "nodes": [
+      {
+       "label": "website",
+       "icon": "globe",
+       "at": "website"
+      },
+      {
+       "label": "payments",
+       "icon": "money",
+       "at": "payments"
+      },
+      {
+       "label": "auth",
+       "icon": "key",
+       "at": "auth"
+      },
+      {
+       "label": "database",
+       "icon": "server",
+       "at": "database"
+      },
+      {
+       "label": "provider",
+       "icon": "cloud",
+       "at": "provider"
+      }
+     ]
+    },
+    {
+     "type": "media",
+     "at": "Para ser justo",
+     "src": "/home/nmaldaner/projetos/output/explica-uTU5Ihgl_7Q/media/s-357.png",
+     "focus": [
+      0.5,
+      0.6
+     ],
+     "zoom": [
+      1,
+      1.08
+     ],
+     "highlights": [
+      {
+       "x": 0.28,
+       "y": 0.81,
+       "w": 0.47,
+       "h": 0.14,
+       "at": "a mesma evidência"
+      }
+     ],
+     "label": "mesma **question**, mesma **evidence**"
+    },
+    {
+     "type": "media",
+     "at": "Clientes sem conseguir",
+     "src": "/home/nmaldaner/projetos/output/explica-uTU5Ihgl_7Q/media/s-339.png",
+     "focus": [
+      0.3,
+      0.35
+     ],
+     "zoom": [
+      1,
+      1.15
+     ],
+     "highlights": [
+      {
+       "x": 0.065,
+       "y": 0.26,
+       "w": 0.34,
+       "h": 0.25,
+       "at": "sign in"
+      }
+     ],
+     "label": "Website outage investigation · cenários"
+    },
+    {
+     "type": "media",
+     "at": "Em todos os testes",
+     "src": "/home/nmaldaner/projetos/output/explica-uTU5Ihgl_7Q/media/s-393.png",
+     "focus": [
+      0.5,
+      0.65
+     ],
+     "zoom": [
+      1,
+      1.08
+     ],
+     "highlights": [
+      {
+       "x": 0.645,
+       "y": 0.73,
+       "w": 0.075,
+       "h": 0.07,
+       "at": "cento e quarenta"
+      },
+      {
+       "x": 0.195,
+       "y": 0.73,
+       "w": 0.075,
+       "h": 0.07,
+       "at": "cento e sessenta"
+      },
+      {
+       "x": 0.335,
+       "y": 0.73,
+       "w": 0.1,
+       "h": 0.07,
+       "at": "mais barato"
+      }
+     ],
+     "label": "Jev **165 ms** · Decisions API **144 ms**"
+    },
+    {
+     "type": "media",
+     "at": "No modo full",
+     "src": "/home/nmaldaner/projetos/output/explica-uTU5Ihgl_7Q/media/s-423.png",
+     "focus": [
+      0.4,
+      0.3
+     ],
+     "zoom": [
+      1,
+      1.12
+     ],
+     "highlights": [
+      {
+       "x": 0.19,
+       "y": 0.11,
+       "w": 0.14,
+       "h": 0.07,
+       "at": "full investigation"
+      }
+     ],
+     "label": "**full investigation** · mesma conclusão"
+    }
+   ]
+  },
+  "9": {
+   "shots": [
+    {
+     "type": "media",
+     "at": "A terceira é",
+     "src": "/home/nmaldaner/projetos/output/explica-uTU5Ihgl_7Q/media/s-453.png",
+     "focus": [
+      0.3,
+      0.5
+     ],
+     "zoom": [
+      1,
+      1.12
+     ],
+     "highlights": [
+      {
+       "x": 0.055,
+       "y": 0.38,
+       "w": 0.44,
+       "h": 0.31,
+       "at": "cinco afirmações"
+      }
+     ],
+     "label": "Business report verification"
+    },
+    {
+     "type": "bullets",
+     "at": "Cada afirmação recebe",
+     "title": "CADA AFIRMAÇÃO",
+     "layout": "row",
+     "items": [
+      {
+       "text": "supported",
+       "icon": "check",
+       "at": "supported"
+      },
+      {
+       "text": "contradicted",
+       "icon": "x",
+       "at": "contradicted"
+      },
+      {
+       "text": "insufficient evidence",
+       "icon": "warn",
+       "at": "insufficient evidence"
+      }
+     ]
+    },
+    {
+     "type": "media",
+     "at": "Os dois concordaram",
+     "src": "/home/nmaldaner/projetos/output/explica-uTU5Ihgl_7Q/media/s-471.png",
+     "focus": [
+      0.5,
+      0.55
+     ],
+     "zoom": [
+      1,
+      1.06
+     ],
+     "highlights": [
+      {
+       "x": 0.05,
+       "y": 0.38,
+       "w": 0.9,
+       "h": 0.3,
+       "at": "cem por cento"
+      },
+      {
+       "x": 0.19,
+       "y": 0.73,
+       "w": 0.09,
+       "h": 0.07,
+       "at": "tempo de resposta"
+      },
+      {
+       "x": 0.645,
+       "y": 0.73,
+       "w": 0.085,
+       "h": 0.07,
+       "at": "tempo de resposta"
+      }
+     ],
+     "label": "Jev **155 ms** · Decisions API **163 ms**"
+    },
+    {
+     "type": "counter",
+     "at": "A maior diferença",
+     "items": [
+      {
+       "value": 50,
+       "suffix": " ms",
+       "label": "maior diferença",
+       "at": "cinquenta milissegundos"
+      },
+      {
+       "value": 50,
+       "prefix": "até ",
+       "suffix": "%",
+       "label": "mais barato no Jev",
+       "at": "quarenta e cinquenta"
+      }
+     ]
+    }
+   ]
+  },
+  "10": {
+   "shots": [
+    {
+     "type": "media",
+     "at": "Juntando tudo",
+     "src": "/home/nmaldaner/projetos/output/explica-uTU5Ihgl_7Q/media/s-495.png",
+     "focus": [
+      0.5,
+      0.45
+     ],
+     "zoom": [
+      1,
+      1.08
+     ],
+     "highlights": [
+      {
+       "x": 0.09,
+       "y": 0.355,
+       "w": 0.79,
+       "h": 0.065,
+       "at": "acertaram todas"
+      },
+      {
+       "x": 0.09,
+       "y": 0.425,
+       "w": 0.79,
+       "h": 0.055,
+       "at": "A chamada média"
+      }
+     ],
+     "label": "How do they compare? · relatórios"
+    },
+    {
+     "type": "media",
+     "at": "Na investigação de quedas",
+     "src": "/home/nmaldaner/projetos/output/explica-uTU5Ihgl_7Q/media/s-525.png",
+     "focus": [
+      0.5,
+      0.5
+     ],
+     "zoom": [
+      1,
+      1.08
+     ],
+     "highlights": [
+      {
+       "x": 0.5,
+       "y": 0.62,
+       "w": 0.13,
+       "h": 0.07,
+       "at": "quase metade"
+      }
+     ],
+     "label": "investigação de quedas · **total test cost**"
+    },
+    {
+     "type": "media",
+     "at": "Essa diferença de custo",
+     "src": "/home/nmaldaner/projetos/output/explica-uTU5Ihgl_7Q/media/s-537.png",
+     "focus": [
+      0.3,
+      0.75
+     ],
+     "zoom": [
+      1,
+      1.15
+     ],
+     "highlights": [
+      {
+       "x": 0.09,
+       "y": 0.68,
+       "w": 0.34,
+       "h": 0.29,
+       "at": "milhões de chamadas"
+      }
+     ],
+     "label": "o custo pesa na casa dos **milhões**"
+    },
+    {
+     "type": "compare",
+     "at": "O veredito",
+     "left": {
+      "title": "Decisions API",
+      "tone": "good",
+      "at": "O veredito",
+      "lines": [
+       {
+        "text": "Entrada com **imagem**",
+        "at": "precisa de imagem"
+       },
+       {
+        "text": "Chamada média mais rápida",
+        "at": "Chamada média mais"
+       }
+      ]
+     },
+     "right": {
+      "title": "Jev",
+      "tone": "good",
+      "at": "O veredito",
+      "lines": [
+       {
+        "text": "Menor custo em escala",
+        "at": "Menor custo"
+       },
+       {
+        "text": "Investigação mediana mais rápida",
+        "at": "Investigação mediana"
+       }
+      ]
+     },
+     "verdict": {
+      "text": "Acerto: **empate**",
+      "at": "no acerto"
+     }
+    }
+   ]
+  },
+  "11": {
+   "shots": [
+    {
+     "type": "lanes",
+     "at": "Resumindo",
+     "lanes": [
+      {
+       "title": "Jev",
+       "icon": "money"
+      },
+      {
+       "title": "Decisions API",
+       "icon": "image"
+      }
+     ],
+     "items": [
+      {
+       "lane": 0,
+       "text": "O mais **barato**",
+       "at": "o mais barato"
+      },
+      {
+       "lane": 1,
+       "text": "**Imagem** e mais velocidade",
+       "at": "Se precisa de"
+      }
+     ]
+    },
+    {
+     "type": "statement",
+     "at": "Esse cenário muda",
+     "text": "Teste com os **seus próprios dados**"
+    },
+    {
+     "type": "keyword",
+     "at": "E se você quer",
+     "text": "inema.club",
+     "sub": "projetos e cursos gratuitos",
+     "sub_at": "são gratuitos"
+    }
+   ]
+  }
+ }
+}

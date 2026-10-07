@@ -1,0 +1,170 @@
+[
+ {
+  "chapter": "Abertura",
+  "title": "A OpenAI lançou a Decisions API",
+  "kind": "statement",
+  "labels": [
+   "Decisions API",
+   "Jev",
+   "custo · velocidade · acerto"
+  ],
+  "takeaway": "A Decisions API é a versão da OpenAI de um serviço no estilo do Jev.",
+  "source": "youtube:uTU5Ihgl_7Q@0:00",
+  "speech": "Há poucas semanas o Jev virou assunto no mundo inteiro, e logo apareceram dezenas de versões open source. Agora a OpenAI lançou a Decisions API, que é a resposta dela a esse tipo de serviço. Neste vídeo eu mostro o que a Decisions API faz, como ela funciona e, principalmente, como ela se compara ao Jev em custo, velocidade e acerto, com demonstrações lado a lado.",
+  "svg": null
+ },
+ {
+  "chapter": "O que é",
+  "title": "Evidência, pergunta e resposta",
+  "kind": "flow",
+  "labels": [
+   "text",
+   "image",
+   "Decisions API",
+   "answer",
+   "Your app"
+  ],
+  "takeaway": "Você manda evidência e uma pergunta; volta uma resposta que o seu app consegue usar.",
+  "source": "youtube:uTU5Ihgl_7Q@0:33",
+  "speech": "Na prática é simples. Você manda um texto ou uma imagem, faz uma pergunta, e recebe de volta uma answer que o seu app consegue usar direto, sem precisar interpretar um texto livre.",
+  "svg": null
+ },
+ {
+  "chapter": "Tipos de pergunta",
+  "title": "True or false, multiple choice e how much",
+  "kind": "steps",
+  "labels": [
+   "True or false",
+   "Multiple choice",
+   "How much",
+   "probability",
+   "predicate = Noul"
+  ],
+  "takeaway": "Três formatos de pergunta, e toda resposta vem com probabilidade.",
+  "source": "youtube:uTU5Ihgl_7Q@0:55",
+  "speech": "Assim como no Jev, existem três formatos de pergunta. O primeiro é true or false, um sim ou não. O segundo é multiple choice: qual opção se encaixa melhor. O terceiro é how much: você dá uma rubrica e o modelo escolhe o nível certo para aquele caso. Você define a pergunta e explica o que cada resposta possível significa. E toda resposta volta com uma probabilidade. Numa pergunta como: esta mensagem é spam?, a OpenAI chama o formato de predicate, que é exatamente o que o Jev chama de Noul.",
+  "svg": null
+ },
+ {
+  "chapter": "Como funciona",
+  "title": "Model, evidence e judgment",
+  "kind": "flow",
+  "labels": [
+   "Your app",
+   "request",
+   "GPT-6 Luna",
+   "evidence",
+   "confidence"
+  ],
+  "takeaway": "Cada pergunta tem três partes: o modelo, a evidência e o julgamento a fazer.",
+  "source": "youtube:uTU5Ihgl_7Q@1:45",
+  "speech": "O fluxo é este. O seu app envia o request para a OpenAI com um dos três formatos de pergunta. O request vai para o classificador, que aqui é o GPT-6 Luna. Junto vai a evidence, que o Luna lê para avaliar cada resposta possível e o confidence de cada uma. Então toda pergunta tem três partes: o modelo, a evidência e o julgamento a fazer. Para começar rápido, pegue o link da documentação da Decisions API, entregue ao seu assistente, seja Codex, Claude ou Gemini, passe uma API key e pronto.",
+  "svg": null
+ },
+ {
+  "chapter": "Exemplo",
+  "title": "Devoluções numa loja online",
+  "kind": "fields",
+  "labels": [
+   "Type: choice",
+   "Instructions",
+   "Choices",
+   "Damaged · No damage",
+   "Name: optional"
+  ],
+  "takeaway": "Tipo, instruções e opções: é tudo o que a pergunta precisa.",
+  "source": "youtube:uTU5Ihgl_7Q@2:40",
+  "speech": "Um exemplo concreto. Imagine uma loja online cuidando de devoluções. Você quer saber que tipo de problema o cliente está relatando. O tipo da pergunta é choice. Nas instructions você explica a tarefa: leia a mensagem do cliente e decida que tipo de problema ele relata. Depois vêm as choices: Damaged, No damage reported, ou Not enough information, que é o famoso não sei. O name é opcional. A API lê o e-mail e devolve a opção escolhida com a porcentagem de confiança.",
+  "svg": null
+ },
+ {
+  "chapter": "Comparação",
+  "title": "Jev versus Decisions API",
+  "kind": "compare",
+  "labels": [
+   "Evidence: Text | Text + images",
+   "Cost: $0.042 | $0.10",
+   "58% cheaper",
+   "Refusals"
+  ],
+  "takeaway": "Quase iguais no papel; a diferença está em imagem, custo e refusal.",
+  "source": "youtube:uTU5Ihgl_7Q@3:55",
+  "speech": "Agora a comparação em tabela. Na evidência, o Jev hoje aceita só texto, e a Decisions API aceita texto e imagem: é um classificador multimodal. Faz sentido, porque os modelos da OpenAI já são multimodais há tempo; ela não treinou um modelo especial para classificar. Nos tipos de resposta, os dois são equivalentes, e os dois respondem várias perguntas sobre a mesma evidência num único request. A diferença grande é o custo: o Jev cobra zero vírgula zero quatro dois dólar por milhão de tokens de entrada, e a Decisions API cobra zero vírgula dez. O Jev sai cinquenta e oito por cento mais barato. E um detalhe: a Decisions API pode recusar uma pergunta, o chamado refusal. O Jev sempre responde dentro das opções que você deu.",
+  "svg": null
+ },
+ {
+  "chapter": "Demo 1",
+  "title": "Product damage inspection",
+  "kind": "steps",
+  "labels": [
+   "Visible damage",
+   "No visible damage",
+   "Cannot assess",
+   "latency",
+   "cost"
+  ],
+  "takeaway": "Com imagem, só a Decisions API joga, e responde em menos de um segundo.",
+  "source": "youtube:uTU5Ihgl_7Q@4:55",
+  "speech": "Vamos às demonstrações. A primeira é com imagem, então aqui só a Decisions API participa, porque o Jev não lê imagem. São fotos de produtos, e ela precisa marcar uma de três categorias: visible damage, no visible damage ou cannot assess. No fone quebrado, a resposta é visible damage, em menos de um segundo e com custo irrisório. No HD externo intacto, no visible damage. E na foto da caixa fechada, cannot assess. As três respostas corretas.",
+  "svg": null
+ },
+ {
+  "chapter": "Demo 2",
+  "title": "Website outage investigation",
+  "kind": "compare",
+  "labels": [
+   "Website · Auth · Payments",
+   "Database · Provider",
+   "Same evidence",
+   "Full investigation"
+  ],
+  "takeaway": "Mesma pergunta e mesma evidência: Decisions API um pouco mais rápida, Jev mais barato.",
+  "source": "youtube:uTU5Ihgl_7Q@5:35",
+  "speech": "A segunda demonstração já compara os dois. Um site sofre quedas e o classificador precisa apontar a causa entre cinco suspeitos: website, payments, auth, database ou provider. Para ser justo, os dois recebem a mesma pergunta, a mesma evidência e as mesmas opções. Clientes sem conseguir abrir a loja, sem conseguir fazer sign in, sem conseguir fechar o checkout. Em todos os testes, a Decisions API foi ligeiramente mais rápida, por exemplo cento e quarenta e quatro contra cento e sessenta e cinco milissegundos, e o Jev foi sempre mais barato. No modo full investigation, em que o modelo decide o quanto aprofundar, os dois chegam à mesma conclusão.",
+  "svg": null
+ },
+ {
+  "chapter": "Demo 3",
+  "title": "Business report verification",
+  "kind": "compare",
+  "labels": [
+   "supported",
+   "contradicted",
+   "insufficient evidence",
+   "5 answers"
+  ],
+  "takeaway": "Nas cinco afirmações do relatório, concordância total.",
+  "source": "youtube:uTU5Ihgl_7Q@7:20",
+  "speech": "A terceira é a verificação de um relatório da empresa, com cinco afirmações para checar contra os registros. Cada afirmação recebe supported, contradicted ou insufficient evidence. Os dois concordaram em cem por cento das respostas, com tempo de resposta muito parecido. A maior diferença ficou em torno de cinquenta milissegundos. E o custo do Jev, de novo, ficou entre quarenta e cinquenta por cento menor.",
+  "svg": null
+ },
+ {
+  "chapter": "Resultado",
+  "title": "How do they compare?",
+  "kind": "compare",
+  "labels": [
+   "Correct 200/200",
+   "Average call 155 | 146 ms",
+   "Lower cost: Jev",
+   "Faster call: Decisions API"
+  ],
+  "takeaway": "Imagem e velocidade: Decisions API. Custo em escala: Jev. Acerto: empate.",
+  "source": "youtube:uTU5Ihgl_7Q@8:10",
+  "speech": "Juntando tudo. Na verificação de relatórios, os dois acertaram todas as respostas. A chamada média foi de cento e cinquenta e cinco milissegundos no Jev contra cento e quarenta e seis na OpenAI. Na investigação de quedas, o Jev custou quase metade. Essa diferença de custo só pesa de verdade na casa dos milhões de chamadas; em dezenas ou milhares, quase não se nota. O veredito: precisa de imagem, Decisions API. Menor custo em escala, Jev. Chamada média mais rápida, OpenAI. Investigação mediana mais rápida, Jev. E no acerto, empate.",
+  "svg": null
+ },
+ {
+  "chapter": "Fechamento",
+  "title": "Qual escolher",
+  "kind": "steps",
+  "labels": [
+   "Mais barato → Jev",
+   "Multimodal e rápido → Decisions API",
+   "inema.club"
+  ],
+  "takeaway": "Quer barato, Jev. Quer imagem e velocidade, Decisions API.",
+  "source": "youtube:uTU5Ihgl_7Q@9:15",
+  "speech": "Resumindo: se você quer o mais barato, use o Jev. Se precisa de imagem e um pouco mais de velocidade, use a Decisions API. Esse cenário muda toda semana, então vale testar com os seus próprios dados. E se você quer aprender a usar decisões de IA na prática, os projetos e cursos são gratuitos no inema ponto club.",
+  "svg": null
+ }
+]

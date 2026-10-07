@@ -1,0 +1,17 @@
+{
+  "id": "<ID>",
+  "title": "<TÍTULO>",
+  "source_repo": "<OUT>",
+  "output": "<OUT>/v1",
+  "languages": ["pt"],
+  "scene_files": {"pt": "<OUT>/roteiro/pt.json"},
+  "github_repo": "inematds/<ID>-video",
+  "release_tag": "video-v2.0.0",
+  "template": "TEMPLATE-AVATAR16",
+  "profile": "/home/nmaldaner/.cache/inemaccbot/perfil-heygen",
+  "max_chars": 4400,
+  "hyperframes": "0.8.77",
+  "transcriber": "whisper-local",
+  "whisper_prompt": "Nei Maldaner, INEMA, <nomes e termos técnicos do vídeo>, inema ponto club.",
+  "balanced_blocks": true
+}

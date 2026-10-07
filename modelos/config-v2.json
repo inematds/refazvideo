@@ -1,0 +1,12 @@
+{
+  "id": "<ID>",
+  "title": "<TÍTULO>",
+  "engine": "v2",
+  "source_repo": "<OUT>",
+  "output": "<OUT>/v2",
+  "v1_output": "<OUT>/v1",
+  "languages": ["pt"],
+  "github_repo": "inematds/<ID>-video",
+  "release_tag": "video-v2.0.0",
+  "hyperframes": "0.8.77"
+}
