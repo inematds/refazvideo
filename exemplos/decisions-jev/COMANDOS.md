@@ -5,7 +5,7 @@ Publicado: https://www.youtube.com/watch?v=p34w1bBPjpc (canal lives1). `OUT=~/pr
 
 ## Pedido
 - Assunto: o que é a Decisions API da OpenAI e como se compara ao Jev (custo, velocidade, acerto, 3 demos).
-- Não citar o apresentador original. Termos técnicos em inglês. Fechar com inema ponto club.
+- Fala sem citar o apresentador original; crédito escrito no fim ("Fonte: vídeo de Mark Kashef no YouTube", pedido depois). Termos técnicos em inglês. Fechar com inema ponto club.
 - Entrega: bot v3; depois "publica na lives1".
 
 ## Comandos
@@ -20,9 +20,10 @@ for t in 33 39 63 93 117 171 255 297 309 321 339 357 393 423 453 471 495 525 537
   ffmpeg -v error -y -ss $t -i $OUT/src/video.mp4 -frames:v 1 $OUT/media/raw-$t.png; done
 # slides com webcam à direita: recorte 1250×1080 e pad para 2052×1080
 ferramentas/preparar_print.py $OUT/media/raw-33.png $OUT/media/p-33.png --crop 0,0,1250,1080 --pad
-# telas de demo: webcam no canto → bloco liso
-ferramentas/preparar_print.py $OUT/media/raw-393.png $OUT/media/s-393.png --cobrir 1488,0,432,406 --cor 1600,700
-ferramentas/preparar_print.py $OUT/media/raw-297.png $OUT/media/s-297.png --cobrir 1510,665,390,400
+# telas de demo: webcam em 3 posições diferentes (conferir CADA print) → preenchimento por linha
+for t in 357 393 423 453 471; do ferramentas/preparar_print.py $OUT/media/raw-$t.png $OUT/media/s-$t.png --cobrir 1516,52,377,362; done
+for t in 297 309 321 495 525 537; do ferramentas/preparar_print.py $OUT/media/raw-$t.png $OUT/media/s-$t.png --cobrir 1516,676,377,362; done
+ferramentas/preparar_print.py $OUT/media/raw-339.png $OUT/media/s-339.png --cobrir 1610,22,310,292
 
 # 3. roteiro ($OUT/roteiro/pt.json = roteiro-pt.json) + storyboard → aprovação
 ferramentas/montar_storyboard.py $OUT mapa.json

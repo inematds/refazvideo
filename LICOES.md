@@ -2,6 +2,8 @@
 
 | data | o que quebrou | proteção |
 |---|---|---|
+| 2026-10-07 | Rosto do autor apareceu a partir de 4 min: a webcam estava no canto SUPERIOR nos prints 453/471 e eu cobri o inferior (mesma caixa para todos) | Localizar a webcam em cada print (folha de recortes do canto) e usar a caixa certa por print |
+| 2026-10-07 | Bloco liso sobre a webcam ficou evidente ("escondeu, mas ficou claro") | `--modo linha`: cada linha recebe a cor mais comum da faixa à esquerda, continuando o fundo |
 | 2026-10-07 | Blur (boxblur) na webcam do apresentador original virou mancha rosa visível no print | Cobrir com retângulo liso da cor do fundo (`preparar_print.py --cobrir`) |
 | 2026-10-07 | v2: `label` de shot `media` com 42–48 caracteres sobrepôs a legenda da fala (`content_overlap`) | `label` ≤ 40 caracteres (39–40 passaram) (checado em `validar_visual.py`) |
 | 2026-10-07 | v1: cenas `compare` com 6–7 `labels` estouraram o quadro no `hyperframes check` | `labels` ≤ 4 em `compare`, ≤ 5 nas demais (checado em `validar_visual.py`) |

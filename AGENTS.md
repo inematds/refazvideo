@@ -9,8 +9,11 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
 
 ## Regras que não mudam
 
-- **Não citar o autor/canal da referência** (nem na fala, nem na tela, nem na descrição) se o pedido disser.
-  Rosto do apresentador original nunca aparece: cobrir a webcam com **bloco liso da cor do fundo** (blur vira mancha).
+- **Crédito da fonte**: a fala não cita o autor da referência; o crédito aparece **escrito no fim** quando o pedido
+  disser (`"takeaway": "Fonte: vídeo de **<autor>** no YouTube"` na última cena do visual v2 + linha na descrição do YouTube).
+- **Rosto do apresentador original nunca aparece.** A webcam muda de lugar entre os trechos do vídeo: conferir
+  **cada print** e cobrir com `preparar_print.py --cobrir` (modo `linha`, continua o fundo da tela; caixa incluindo a
+  sombra). Blur vira mancha; bloco liso fica evidente. Conferir com uma folha dos prints antes do render.
 - **Termos técnicos não se traduzem** (API, evidence, choice, refusal…). A fala é PT natural; a tela pode
   manter o print em inglês.
 - **HeyGen custa crédito.** Só enviar com o "pode fazer" explícito do dono no momento, gravado em
