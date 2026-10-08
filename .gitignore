@@ -2,3 +2,5 @@
 *.png
 *.jpg
 __pycache__/
+!guia/assets/*
+!capa/*
