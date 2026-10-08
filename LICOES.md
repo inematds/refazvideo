@@ -2,6 +2,8 @@
 
 | data | o que quebrou | proteção |
 |---|---|---|
+| 2026-10-07 | Texto em PT sai ~25% mais comprido e quebrava/vazava das caixas desenhadas para o inglês | `fit()` em `telas_pt/base.js` + aviso VAZA no `render.mjs`; conferir folha antes do storyboard |
+| 2026-10-07 | `montar_storyboard.py`/modelo só aceitam tempos do original e trazem textos do caso decisions-jev | Para telas PT, copiar o modelo para `$OUT/preview/` e trocar título, termos e legendas |
 | 2026-10-07 | Rosto do autor apareceu a partir de 4 min: a webcam estava no canto SUPERIOR nos prints 453/471 e eu cobri o inferior (mesma caixa para todos) | Localizar a webcam em cada print (folha de recortes do canto) e usar a caixa certa por print |
 | 2026-10-07 | Bloco liso sobre a webcam ficou evidente ("escondeu, mas ficou claro") | `--modo linha`: cada linha recebe a cor mais comum da faixa à esquerda, continuando o fundo |
 | 2026-10-07 | Blur (boxblur) na webcam do apresentador original virou mancha rosa visível no print | Cobrir com retângulo liso da cor do fundo (`preparar_print.py --cobrir`) |

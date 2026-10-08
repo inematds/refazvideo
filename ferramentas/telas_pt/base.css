@@ -1,0 +1,30 @@
+@font-face { font-family: 'Excali'; src: url('Excalifont.woff2') format('woff2'); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 2052px; height: 1080px; background: #fff; overflow: hidden; }
+body { font-family: 'Excali', 'Comic Sans MS', cursive; color: #1e1e1e; }
+#st { position: absolute; left: 66px; top: 0; width: 1920px; height: 1080px; }
+.title { position: absolute; left: 0; right: 0; top: 108px; text-align: center; font-size: 74px; line-height: 1; }
+.title span { display: inline-block; padding: 0 8px 22px; background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 5px; }
+.u-teal span { background-image: linear-gradient(#1c7c8c,#1c7c8c); }
+.u-violet span { background-image: linear-gradient(#6741d9,#6741d9); }
+.u-orange span { background-image: linear-gradient(#e8590c,#e8590c); }
+.u-green span { background-image: linear-gradient(#2f9e44,#2f9e44); }
+.u-amber span { background-image: linear-gradient(#f08c00,#f08c00); }
+.u-red span { background-image: linear-gradient(#e03131,#e03131); }
+.u-pink span { background-image: linear-gradient(#c2255c,#c2255c); }
+.a { position: absolute; }
+.b { position: absolute; border: 3px solid #1e1e1e; border-radius: 16px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 34px; line-height: 1.15; background: #fff; padding: 4px 14px; white-space: nowrap; }
+.sq { border-radius: 6px; }
+.y { background: #ffec99; } .bl { background: #a5d8ff; } .pk { background: #ffc9c9; } .gr { background: #b2f2bb; }
+.or { background: #ffd8a8; } .vi { background: #d0bfff; } .gy { background: #f1f3f5; } .tq { background: #96f2d7; }
+.t { position: absolute; font-size: 34px; line-height: 1.2; white-space: nowrap; }
+.c { text-align: center; transform: translateX(-50%); }
+.mut { color: #868e96; } .g { color: #2f9e44; } .r { color: #e03131; } .o { color: #e8590c; } .v { color: #5f3dc4; } .bu { color: #1971c2; } .te { color: #0c8599; }
+.foot { position: absolute; left: 0; right: 0; top: 965px; text-align: center; font-size: 44px; }
+.mono { font-family: 'DejaVu Sans Mono', monospace; font-size: 27px; }
+svg.ov { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+svg.ov path, svg.ov line { fill: none; stroke: #1e1e1e; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+svg.ov .gl { stroke: #2f9e44; } svg.ov .gyl { stroke: #adb5bd; } svg.ov .bul { stroke: #1971c2; }
+svg.ic { position: absolute; overflow: visible; }
+svg.ov ellipse { fill: none; stroke: #1e1e1e; stroke-width: 3; }
+svg.ov rect, svg.ov circle { fill: #fff; stroke: #1e1e1e; stroke-width: 3; }

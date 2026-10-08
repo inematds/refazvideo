@@ -35,6 +35,10 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
 3. **Prints**: `ffmpeg -ss <t> -i src/video.mp4 -frames:v 1 media/raw-<t>.png`, depois
    `ferramentas/preparar_print.py` — `--cobrir x,y,w,h` (webcam/rosto) e `--pad` (slide estreito → 2052×1080
    para caber no quadro 1330×700 do shot `media`).
+   **Telas refeitas em PT** (quando o dono pedir, ou a referência for quadro branco/slides com texto): copiar
+   `ferramentas/telas_pt/` para `$OUT/telas-pt/`, escrever um `NN-<slug>.html` por tela (modelo: `exemplo-*.html`;
+   elementos com `data-step` montam em etapas, `data-ate` some depois), `node render.mjs` → `media/pt/NN-<slug>-sK.png`
+   (2052×1080, Excalifont com acentos). Conferir numa folha antes do storyboard. Sem print original → sem webcam para cobrir.
 4. **Roteiro** `roteiro/pt.json`: lista de cenas `{chapter,title,kind,labels,takeaway,source,speech,svg:null}`
    (modelo: `exemplos/decisions-jev/roteiro-pt.json`). Reescrever, não traduzir frase a frase. ~150 palavras/min.
    `labels`: **≤ 4 em `kind: compare`, ≤ 5 nas demais**, curtos. Fecha com CTA "inema ponto club".
