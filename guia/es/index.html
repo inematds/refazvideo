@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>refazvideo — un video de referencia se convierte en un explicativo con tu avatar</title>
+<meta name="description" content="Método y herramientas para que un agente rehaga un video de referencia como explicativo en portugués, con tu avatar y tu voz (explicavideos + HeyGen).">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/refazvideo/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/refazvideo/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/refazvideo/guia/es/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#E2A23B; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#b9791d; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(226,162,59,.12)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:760px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(226,162,59,.22),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:34ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:62ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .num{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:8px;background:rgba(226,162,59,.14);color:var(--amb);font-family:Sora;font-weight:800;font-size:.9rem;margin-bottom:.7em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#6f6f7c} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:26px}
+  .step>div,.card{min-width:0}
+  p code,li code,td code{overflow-wrap:anywhere}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  .ex{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.ex{grid-template-columns:1fr}}
+  .ex figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .ex figure img{width:100%;display:block}
+  .ex figcaption{padding:12px 14px;font-size:.88rem;color:var(--mut);background:var(--card)}
+  .phase{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border:none}
+  .phase .tag{flex:0 0 92px;font-family:Sora;font-weight:800;color:var(--amb)}
+  .phase .d strong{display:block;margin-bottom:.2em}
+  .phase .d span{color:var(--mut);font-size:.92rem}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🎬</span> refazvideo</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#oque">Qué es</a>
+    <a class="sec" href="#fluxo">Cómo funciona</a>
+    <a class="sec" href="#guia">Guía de uso</a>
+    <a class="sec" href="#exemplos">Ejemplos</a>
+    <a class="sec" href="#roadmap">Roadmap</a>
+    <span class="lang"><a href="../">PT</a><a href="../en/">EN</a><a class="on" href="./">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/refazvideo" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Método + herramientas · explicavideos + HeyGen</span>
+      <h1>Un video de referencia se convierte en <span class="amb">tu</span> explicativo</h1>
+      <p class="lead">Dices el tema y pasas el enlace de un video. El agente reescribe el guion en portugués, usa las pantallas reales de la referencia, graba con tu avatar y tu voz y lo entrega listo para Telegram o YouTube.</p>
+      <div class="cta">
+        <a class="btn" href="#guia">Empezar la guía</a>
+        <a class="btn ghost" href="https://github.com/inematds/refazvideo" target="_blank" rel="noopener">Ver en GitHub</a>
+      </div>
+    </div>
+    <figure><img src="../assets/banner-es.jpg" alt="Banner de refazvideo: un video de referencia se convierte en un explicativo con avatar"></figure>
+  </div>
+</header>
+
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">En resumen</span>
+  <p>refazvideo es un paso a paso, con herramientas listas, para que un agente de IA (Claude Code o Codex) rehaga un video que te pareció bueno como un video explicativo tuyo, en portugués. Sirve para quien produce contenido y quiere explicar un tema nuevo sin grabarse a sí mismo. Entregas el tema y el enlace; el agente descarga, transcribe, escribe un guion nuevo, muestra una vista previa y solo genera el avatar después de tu "adelante". Para usarlo necesitas el motor explicavideos, una cuenta de HeyGen con tu avatar y una máquina con GPU.</p>
+</div></section>
+
+<section id="oque"><div class="wrap">
+  <span class="chip">Qué es</span>
+  <h2>Explicación propia, sin copiar el video</h2>
+  <p class="sub">El video nuevo tiene un guion reescrito y tu rostro. De la referencia quedan solo las pantallas que ayudan a entender.</p>
+  <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-es.jpg" alt="Las etapas de refazvideo: pedido, referencia, guion, avatar, render y publicación" loading="lazy" style="width:100%;display:block"></figure>
+  <div class="grid g3">
+    <div class="card"><h3>🎙️ Tu voz, tu avatar</h3><p>El habla se genera en HeyGen con tu avatar, desde el estudio (sin API), y solo después de tu aprobación, porque cuesta créditos.</p></div>
+    <div class="card"><h3>🖥️ Pantallas reales de la referencia</h3><p>Diapositivas, demos y tablas se vuelven capturas con resaltados sincronizados con el habla. Los términos técnicos quedan en inglés.</p></div>
+    <div class="card"><h3>🙈 Autor original fuera de pantalla</h3><p>El habla no menciona a quien hizo la referencia y su webcam se borra de cada captura. Si quieres, el crédito aparece escrito al final.</p></div>
+  </div>
+</div></section>
+
+<section id="fluxo"><div class="wrap">
+  <span class="chip">Cómo funciona</span>
+  <h2>Del enlace al video publicado</h2>
+  <p class="sub">Doce pasos descritos en el <code>AGENTS.md</code> (en portugués). El agente se detiene dos veces para que apruebes: en el storyboard y antes de HeyGen.</p>
+  <div class="flow">
+    <span>Pedido</span><span class="arr">→</span>
+    <span>Descargar + transcribir</span><span class="arr">→</span>
+    <span>Capturas</span><span class="arr">→</span>
+    <span>Guion</span><span class="arr">→</span>
+    <span>Storyboard ✋</span><span class="arr">→</span>
+    <span>HeyGen ✋</span><span class="arr">→</span>
+    <span>Render v1</span><span class="arr">→</span>
+    <span>Visual v2</span><span class="arr">→</span>
+    <span>Revisar cuadros</span><span class="arr">→</span>
+    <span>Entrega</span>
+  </div>
+</div></section>
+
+<section id="pre"><div class="wrap">
+  <span class="chip">Requisitos previos</span>
+  <h2>Lo que debe estar en la máquina</h2>
+  <p class="sub">Las rutas de los ejemplos son las de la máquina de INEMA (<code>/home/nmaldaner/...</code>); cámbialas por las tuyas.</p>
+  <div class="grid g3">
+    <div class="card"><h3>explicavideos</h3><p>El motor que sincroniza avatar y habla (v1) y arma el visual con HyperFrames (v2).</p><pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/explicavideos</span></pre></div>
+    <div class="card"><h3>inemavox</h3><p>Descarga la referencia y transcribe con Whisper large-v3 local.</p><pre><span class="k">python3</span> baixar_v1.py --url <span class="s">"&lt;URL&gt;"</span> --outdir src</pre></div>
+    <div class="card"><h3>HeyGen desde el estudio</h3><p>Cuenta con avatar propio, con sesión iniciada en un perfil de navegador. El <code>heygen-studio.mjs</code> usa el estudio, no la API.</p><pre><span class="c"># Xvfb :99 para el navegador</span>
+<span class="k">Xvfb</span> :99 -screen 0 1920x1080x24</pre></div>
+    <div class="card"><h3>ffmpeg, Python 3, Node 20+</h3><p>Python con Pillow para preparar las capturas; Node para el estudio de HeyGen y el envío por el bot.</p><pre><span class="k">pip install</span> pillow</pre></div>
+    <div class="card"><h3>GPU</h3><p>El Whisper del render v1 corre en la GPU. Si falta memoria, basta con limpiar el bloque y repetir.</p><pre><span class="k">nvidia-smi</span></pre></div>
+    <div class="card"><h3>Opcional: entrega</h3><p>Bot de Telegram (openpcbotv3) para enviar el video y <code>yt-pubx</code> para publicarlo en YouTube.</p><pre><span class="k">./yt-pubx</span> canais</pre></div>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">Guía de uso · paso a paso</span>
+  <h2>Pedir un video nuevo</h2>
+  <p class="sub">Solo necesitas el paso 1 y las dos aprobaciones. El resto lo hace el agente siguiendo el <code>AGENTS.md</code>; los comandos de abajo son los que él ejecuta.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Abre el agente en la carpeta y haz el pedido</h3>
+    <p>Puedes escribir directo en el chat o completar <code>modelos/pedido.md</code> (en portugués: tema, referencia, a quién no mencionar, crédito, duración, entrega).</p>
+<pre><span class="k">cd</span> refazvideo &amp;&amp; <span class="k">claude</span>
+<span class="s">"Haz un video nuevo. Tema: &lt;tema&gt;. Referencia: &lt;URL&gt;. No mencionar: &lt;autor&gt;. Entrega: bot v3."</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Descargar, transcribir y ver el video</h3>
+    <p>La referencia va a <code>~/projetos/output/explica-&lt;id&gt;/</code>. Las hojas muestran un cuadro cada 6 s, numerado, para elegir las pantallas útiles.</p>
+<pre><span class="k">python3</span> ~/projetos/inemavox/baixar_v1.py --url <span class="s">"&lt;URL&gt;"</span> --outdir $OUT/src --quality 1080p
+<span class="k">python3</span> ~/projetos/inemavox/transcrever_v1.py --in $OUT/src/video.mp4 --outdir $OUT/src --whisper-model large-v3
+<span class="k">ferramentas/extrair_frames.sh</span> $OUT   <span class="c"># → frames/sheet*.jpg</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Preparar las capturas (y borrar la webcam)</h3>
+    <p>La webcam cambia de lugar a lo largo del video: cada captura tiene su propia caja. El modo <code>linha</code> continúa el fondo de la pantalla en lugar de dejar una mancha.</p>
+<pre><span class="k">ffmpeg</span> -ss 453 -i $OUT/src/video.mp4 -frames:v 1 $OUT/media/raw-453.png
+<span class="k">ferramentas/preparar_print.py</span> raw-453.png s-453.png --cobrir 1516,52,377,362   <span class="c"># webcam en la esquina superior</span>
+<span class="k">ferramentas/preparar_print.py</span> raw-33.png p-33.png --crop 0,0,1250,1080 --pad   <span class="c"># diapositiva estrecha → 2052×1080</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Guion y storyboard: primera aprobación</h3>
+    <p>El guion (<code>roteiro/pt.json</code>) se reescribe, no se traduce frase por frase, a ~150 palabras por minuto, y cierra con "inema ponto club". El storyboard muestra escena, habla y capturas para que lo apruebes.</p>
+<pre><span class="k">ferramentas/montar_storyboard.py</span> $OUT mapa.json   <span class="c"># → preview/storyboard.html</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>HeyGen desde el estudio: segunda aprobación</h3>
+    <p>Solo después de tu "adelante", registrado en <code>v1/APROVADO_HEYGEN</code>. Un envío por bloque; HeyGen puede quedarse un buen rato en 0% y luego termina en minutos.</p>
+<pre><span class="k">DISPLAY=:99 node</span> engine/heygen-studio.mjs --titulo EXPLICA-&lt;ID&gt;-PT-B01-v1 \
+  --fala-arquivo $OUT/v1/blocos/pt-b01.txt --template TEMPLATE-AVATAR16
+<span class="k">~/projetos/refazvideo/ferramentas/baixa_blocos.sh</span> $OUT   <span class="c"># espera hasta 2 h por bloque</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">6</div><div>
+    <h3>Render v1 y visual v2</h3>
+    <p>El v1 sincroniza avatar y habla. El v2 coloca las capturas, resaltados y animaciones en el tiempo exacto del habla; el validador frena los errores que ya rompieron videos antes.</p>
+<pre><span class="k">ferramentas/validar_visual.py</span> $OUT/roteiro/pt.json $OUT/visual/pt-b*.json   <span class="c"># → OK</span>
+<span class="k">python3</span> engine/v2/build_block.py 1 --strict
+<span class="k">engine/v2/run_lane.sh</span> 1 2 &amp;&amp; <span class="k">python3</span> engine/assemble_languages.py   <span class="c"># → v2/final/&lt;id&gt;-pt.mp4</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">7</div><div>
+    <h3>Revisar y entregar</h3>
+    <p>Antes de entregar, una hoja de cuadros repartidos por el video: rostro ajeno, texto cortado, superposición. Después, Telegram (copia 720p, hasta 49 MB) y/o YouTube.</p>
+<pre><span class="k">node</span> ferramentas/enviar_bot_v3.mjs $OUT/v2/final/&lt;id&gt;-pt-720p.mp4 <span class="s">"subtítulo"</span>
+<span class="k">~/projetos/yt-pubx/yt-pubx</span> publicar $OUT/v2/final/&lt;id&gt;-pt.mp4 --canal lives1 --dry-run</pre>
+  </div></div>
+</div></section>
+
+<section id="exemplos"><div class="wrap">
+  <span class="chip">Ejemplos</span>
+  <h2>Caso real: Decisions API × Jev</h2>
+  <p class="sub">Referencia de 9m38s en inglés → explicativo de 5m42s en portugués, 11 escenas, 2 bloques de avatar. Todo lo que se ejecutó está en <code>exemplos/decisions-jev/</code>.</p>
+  <div class="ex">
+    <figure><a href="https://www.youtube.com/watch?v=O2061m5FG_I" target="_blank" rel="noopener"><img src="../assets/ex1.jpg" alt="Portada del video Decisions API × Jev en portugués"></a><figcaption>El video publicado en el canal INEMA TDS. <a href="https://www.youtube.com/watch?v=O2061m5FG_I" target="_blank" rel="noopener">Ver en YouTube</a> · <a href="https://inematds.github.io/decisions-jev/videos/" target="_blank" rel="noopener">reproductor con capítulos</a></figcaption></figure>
+    <figure><img src="../assets/ex2.jpg" alt="Captura de demo con la webcam del autor original borrada"><figcaption>Captura de demo preparada: en la esquina superior derecha estaba la webcam del autor original, borrada con el relleno por línea.</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="roadmap"><div class="wrap">
+  <span class="chip">Roadmap</span>
+  <h2>Versiones</h2>
+  <p class="sub">Lo que ya existe y lo que viene después.</p>
+  <div class="phase"><div class="tag">1.0.0</div><div class="d"><strong>Playbook y herramientas</strong><span>AGENTS.md con los 12 pasos, modelos de pedido y config, herramientas de capturas, validación, storyboard, descarga de los bloques y envío por el bot.</span></div></div>
+  <div class="phase"><div class="tag">1.1.0</div><div class="d"><strong>Webcam por captura y crédito escrito</strong><span>Caja de la webcam revisada en cada captura, relleno por línea en lugar del blur, crédito de la fuente escrito en la última escena.</span></div></div>
+  <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Otros idiomas</strong><span>El mismo video en inglés y español con el flujo del estudio que explicavideos ya usa en otros proyectos.</span></div></div>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">explicavideos</div><div class="pill">HeyGen (estudio)</div><div class="pill">HyperFrames</div><div class="pill">inemavox</div>
+    <p style="margin-top:18px">refazvideo · proyecto abierto y gratuito ·
+      <a href="https://github.com/inematds/refazvideo">inematds/refazvideo</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='refazvideo-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    try{ if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; } }catch(e){}
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      try{ localStorage.setItem(KEY, light?'light':'dark'); }catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>

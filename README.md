@@ -1,5 +1,19 @@
 # refazvideo
 
+[![refazvideo](guia/assets/banner.jpg)](https://inematds.github.io/refazvideo/guia/)
+
+**🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
+
+## O que é
+
+O refazvideo é um passo a passo, com ferramentas prontas, para um agente de IA (Claude Code ou Codex) refazer um vídeo que você achou bom como um vídeo explicativo seu, em português. Serve para quem produz conteúdo e quer explicar um assunto novo sem gravar a si mesmo. Você entrega o assunto e o link; o agente baixa, transcreve, escreve um roteiro novo, mostra uma prévia e só gera o avatar depois do seu "pode fazer". Para usar, precisa do motor explicavideos, de uma conta HeyGen com o seu avatar e de uma máquina com GPU.
+
+## 📖 Guia de uso
+
+Guia completo (landing + passo a passo): **https://inematds.github.io/refazvideo/guia/**
+
+---
+
 Refaz um vídeo de referência como **vídeo explicativo em português**, com o avatar e a voz do
 apresentador (HeyGen), as telas reais da referência com destaques sincronizados à fala e animações.
 
@@ -19,7 +33,7 @@ confere quadros e entrega (Telegram e/ou YouTube). O formulário do pedido está
 | `LICOES.md` | o que já quebrou e a proteção para cada caso |
 | `modelos/` | pedido, configs v1/v2 do explicavideos |
 | `ferramentas/` | folhas de quadros, preparo de print (cobrir rosto, pad), validação do visual, storyboard, download dos blocos HeyGen pelo estúdio, envio pelo bot v3 |
-| `exemplos/decisions-jev/` | caso real: roteiro, visual dos 2 blocos, comandos rodados ([vídeo publicado](https://www.youtube.com/watch?v=p34w1bBPjpc)) |
+| `exemplos/decisions-jev/` | caso real: roteiro, visual dos 2 blocos, comandos rodados ([vídeo publicado](https://www.youtube.com/watch?v=O2061m5FG_I)) |
 
 ## Pré-requisitos
 

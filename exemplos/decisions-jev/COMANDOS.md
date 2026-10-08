@@ -1,7 +1,7 @@
 # Decisions API × Jev — o que foi rodado (07/10/2026)
 
 Referência: https://www.youtube.com/watch?v=uTU5Ihgl_7Q (9m38s, inglês). Resultado: 5m42s em PT, 11 cenas, 2 blocos HeyGen.
-Publicado: https://www.youtube.com/watch?v=p34w1bBPjpc (canal lives1). `OUT=~/projetos/output/explica-uTU5Ihgl_7Q`.
+Publicado: https://www.youtube.com/watch?v=O2061m5FG_I (canal lives1). `OUT=~/projetos/output/explica-uTU5Ihgl_7Q`.
 
 ## Pedido
 - Assunto: o que é a Decisions API da OpenAI e como se compara ao Jev (custo, velocidade, acerto, 3 demos).

@@ -5,7 +5,7 @@ e entrega um vídeo novo, em português, com o avatar e a voz do apresentador (H
 referência e animações. A produção roda no **explicavideos** (`~/projetos/explicavideos`); este projeto
 é o método e as ferramentas em volta dele.
 
-Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.youtube.com/watch?v=p34w1bBPjpc).
+Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.youtube.com/watch?v=O2061m5FG_I).
 
 ## Regras que não mudam
 
