@@ -48,6 +48,7 @@ for f in sys.argv[2:]:
         words = norm(roteiro[int(num) - 1]['speech'])
         acc = []; cues(sc, acc)
         for c in acc:
+            if c == '@start': continue  # marcador do shot hook (frame 0), não é deixa da fala
             base, _, k = c.partition('#'); h = hits(words, base)
             if len(h) < int(k or 1):
                 print(f'ERRO {f} cena {num}: cue não está na fala: {c!r}'); erros += 1

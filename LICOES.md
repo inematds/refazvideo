@@ -2,6 +2,7 @@
 
 | data | o que quebrou | proteção |
 |---|---|---|
+| 2026-10-08 | Vídeo AI harness entregue sem gancho: frame 0 era a 1ª tela comum e não havia prévia do que vem ("faltou gancho viral no frame 0 e gatilho de atenção") | Cena 1 SEMPRE abre com shot `hook` em `@start` (imagem de impacto flux2-klein + promessa de 3–6 palavras) e, na frase "neste vídeo…", uma grade-prévia do conteúdo com "no fim: …" (open loop); `validar_visual.py` aceita `@start` |
 | 2026-10-07 | Texto em PT sai ~25% mais comprido e quebrava/vazava das caixas desenhadas para o inglês | `fit()` em `telas_pt/base.js` + aviso VAZA no `render.mjs`; conferir folha antes do storyboard |
 | 2026-10-07 | `montar_storyboard.py`/modelo só aceitam tempos do original e trazem textos do caso decisions-jev | Para telas PT, copiar o modelo para `$OUT/preview/` e trocar título, termos e legendas |
 | 2026-10-07 | Rosto do autor apareceu a partir de 4 min: a webcam estava no canto SUPERIOR nos prints 453/471 e eu cobri o inferior (mesma caixa para todos) | Localizar a webcam em cada print (folha de recortes do canto) e usar a caixa certa por print |

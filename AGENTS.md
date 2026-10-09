@@ -9,8 +9,9 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
 
 ## Regras que não mudam
 
-- **Crédito da fonte**: a fala não cita o autor da referência; o crédito aparece **escrito no fim** quando o pedido
-  disser (`"takeaway": "Fonte: vídeo de **<autor>** no YouTube"` na última cena do visual v2 + linha na descrição do YouTube).
+- **Sem crédito da fonte** (dono, 08/10/2026: "a gente está construindo tudo e validando"): a fala não cita o autor
+  da referência e **nada escrito** no vídeo nem na descrição do YouTube; o takeaway final é a frase-síntese do vídeo.
+  Só pôr crédito se o pedido disser explicitamente.
 - **Rosto do apresentador original nunca aparece.** A webcam muda de lugar entre os trechos do vídeo: conferir
   **cada print** e cobrir com `preparar_print.py --cobrir` (modo `linha`, continua o fundo da tela; caixa incluindo a
   sombra). Blur vira mancha; bloco liso fica evidente. Conferir com uma folha dos prints antes do render.
@@ -46,6 +47,7 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
 6. **Config explicavideos**: copiar `modelos/config-v1.json` e `modelos/config-v2.json` para
    `~/projetos/explicavideos/examples/<id>.json` e `<id>-v2.json` (trocar `<ID>`, `<OUT>`, `whisper_prompt`
    com nomes e termos). `EXPLICAVIDEOS_CONFIG=examples/<id>.json python3 explica.py prepare` → `v1/blocos/`.
+   Se o `prepare` recusar ("Generation started…"), rodar `engine/prepare.py` **e** `engine/build_scene_templates.py` (sem os templates o render v1 falha com `templates/pt/scene-01.html` ausente).
 7. **HeyGen pelo estúdio** (após APROVADO_HEYGEN), por bloco, com Xvfb `:99` no ar:
    `DISPLAY=:99 node engine/heygen-studio.mjs --titulo <TÍTULO> --fala-arquivo $OUT/v1/blocos/pt-bNN.txt --perfil ~/.cache/inemaccbot/perfil-heygen --template TEMPLATE-AVATAR16`
    Gravar o id (`create-v4/<id>` do log) no `manifest.json` (`status: submitted`, `via: estudio`).
@@ -56,7 +58,10 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
    Falha em `v1/verification/production.json` → corrigir, zerar a chave e subir o render de novo.
 9. **Visual v2** `visual/pt-bNN.json` (contrato em `~/projetos/explicavideos/engine/v2/AUTHORING.md`; modelo em
    `exemplos/decisions-jev/`). Cada `at` é um trecho literal de 1–5 palavras da fala daquela cena; repetido → `"trecho#2"`.
-   Trocar o visual a cada ≤ 10 s. `label` de `media` **≤ 40 caracteres**.
+   Trocar o visual a cada ≤ 10 s. Ilustração: `media` com `calm: true` (dissolve, imagem inteira) e re-enquadramento da mesma imagem com `cont`+`from`, zoom ≤ 1,25 (o Nei reprovou choque e close que corta texto, 09/10). `label` de `media` **≤ 40 caracteres**.
+   **Abertura obrigatória:** cena 1 começa com shot `hook` em `"at": "@start"` (imagem de impacto gerada no flux2-klein local
+   + promessa de 3–6 palavras) e, na frase "neste vídeo eu explico…", uma grade-prévia do conteúdo com um quadro "no fim: …"
+   (gatilho de atenção). O roteiro de fala deve anunciar o que vem logo no começo.
    Validar: `ferramentas/validar_visual.py $OUT/roteiro/pt.json $OUT/visual/pt-b*.json` → `OK`.
 10. **Render v2**: `setup_output.py` → copiar `visual/*.json` para `v2/visual-v2/` → `build_block.py N --strict`
     (zero warnings) → `run_lane.sh 1 2 …` → `assemble_languages.py`. Final: `v2/final/<id>-pt.mp4`.
