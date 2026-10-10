@@ -34,3 +34,7 @@ const r = await (await fetch(base + metodo, { method: 'POST', body: fd })).json(
 if (!r.ok) throw new Error(`Telegram ${r.error_code} ${r.description}`);
 writeFileSync(receipt, JSON.stringify({ message_id: r.result.message_id, at: new Date().toISOString(), bytes: statSync(file).size }, null, 2));
 console.log('enviado message_id', r.result.message_id);
+// Aviso curto de fim, separado da legenda, para o Nei saber que acabou.
+const oQue = (caption.split('\n')[0] || basename(file)).slice(0, 200);
+await fetch(base + 'sendMessage', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ chat_id: chat, text: `✅ Terminei: ${oQue}` }) });
+console.log(`Terminei: enviei ${basename(file)}`);
