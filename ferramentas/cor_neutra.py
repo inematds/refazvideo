@@ -2,7 +2,7 @@
 """Tira o amarelado que o gerador de imagem (Codex image_gen) põe nas fotos.
 
   python3 cor_neutra.py medir   img1.png img2.png ...    só mede
-  python3 cor_neutra.py corrigir img1.png img2.png ...   corrige no lugar (guarda <nome>-orig.png na 1ª vez)
+  python3 cor_neutra.py corrigir img1.png img2.png ...   corrige no lugar (guarda <nome>-amarela.png na 1ª vez)
 
 Medida: amarelo = (R+G)/2 - B da imagem inteira (0-255). Foto neutra fica em 0-10; o gerador entrega 25-55.
 Acima de 18 a imagem é puxada para o cinza até ~12 (mantém o calor da pele). Idempotente.
@@ -24,7 +24,7 @@ def corrigir(a):
     im = Image.open(a).convert("RGB"); antes = amarelo(im)
     if antes <= CORRIGE:
         return antes, antes
-    orig = a.with_name(a.stem + "-orig" + a.suffix)
+    orig = a.with_name(a.stem + "-amarela" + a.suffix)   # não "-orig": capa-orig.png já é a capa sem deslocamento
     if not orig.exists():
         shutil.copy2(a, orig)
     r, g, b = ImageStat.Stat(im.resize((256, 256))).mean; cinza = (r + g + b) / 3
