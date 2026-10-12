@@ -2,6 +2,7 @@
 
 | data | o que quebrou | proteção |
 |---|---|---|
+| 2026-10-12 | Imagens do Codex saindo amareladas/sépia (REA sem travas: amarelo 22–40 no 16:9, 23–53 no r7e) — prompts pediam "paleta âmbar", "luz dourada", objetos dourados | Prompt de imagem com luz neutra e uma cor de destaque (âmbar só no texto desenhado); depois de gerar, `ferramentas/cor_neutra.py corrigir media/*.png` |
 | 2026-10-12 | Viral (REA na prática): tela de terminal em fundo liso reprovou o `qa_viral` (> 40% de blocos lisos); `foto` com `titulo` sobre imagem com texto grande cobriu legenda e carimbos; carimbo longo em y 0,16 bateu na faixa do topo | Terminal desenhado = janela `rgba(13,17,23,.74)` sobre foto escurecida (medir liso ≤ 0,36 com zoom 1,25 antes do render); `foto` sobre imagem com texto: sem `titulo` nem `tag`; carimbo em y 0,16 só com até ~14 caracteres |
 | 2026-10-08 | Vídeo AI harness entregue sem gancho: frame 0 era a 1ª tela comum e não havia prévia do que vem ("faltou gancho viral no frame 0 e gatilho de atenção") | Cena 1 SEMPRE abre com shot `hook` em `@start` (imagem de impacto flux2-klein + promessa de 3–6 palavras) e, na frase "neste vídeo…", uma grade-prévia do conteúdo com "no fim: …" (open loop); `validar_visual.py` aceita `@start` |
 | 2026-10-07 | Texto em PT sai ~25% mais comprido e quebrava/vazava das caixas desenhadas para o inglês | `fit()` em `telas_pt/base.js` + aviso VAZA no `render.mjs`; conferir folha antes do storyboard |
