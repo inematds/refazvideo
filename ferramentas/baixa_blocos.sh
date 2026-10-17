@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Baixa os blocos do avatar SÓ pelo estúdio HeyGen (sem API), um por vez, e registra em blocos-downloads.json.
+# Baixa os blocos do avatar pela API de leitura do HeyGen (heygen-estudio-baixar.mjs, desde 17/10/2026), um por vez, e registra em blocos-downloads.json.
 # Lê ids e títulos de <OUT>/v1/blocos/manifest.json (campo "id" gravado após o envio pelo estúdio).
-# Uso: ferramentas/baixa_blocos.sh <OUT>     (precisa do Xvfb :99 no ar e do perfil HeyGen logado)
+# Uso: ferramentas/baixa_blocos.sh <OUT>
 set -u
 OUT=${1:?uso: baixa_blocos.sh <OUT>}/v1
 EV=${EXPLICAVIDEOS:-$HOME/projetos/explicavideos}
