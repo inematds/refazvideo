@@ -26,9 +26,28 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
 
 `OUT=~/projetos/output/explica-<id-do-video>/` com `src/ frames/ media/ roteiro/ visual/ preview/ v1/ v2/`.
 
-## Dois modos: aula ou viral (11/10/2026)
+## Três modos: clipes, aula ou viral
 
-- **`modo aula`** (padrão para vídeo longo/didático): o passo a passo abaixo, explicavideos v2 de sempre.
+- **`modo clipes`** (PADRÃO quando a referência é um explicativo com animações/diagramas — 20/10/2026): o visual do
+  nosso vídeo são **os próprios trechos animados da referência**, cortados e sincronizados com a fala PT do Nei.
+  Foi o que o dono pediu ao dizer "refazvideo": no ia-crescendo (hhHkaZRwBBU) eu fiz viral com artes novas e telas
+  redesenhadas e ele reprovou ("as imagens, os exemplos, as animações, nada disso temos no nosso vídeo").
+  Passos (depois do roteiro e do avatar, 1–8):
+  1. Texto da referência: primeiro a **legenda do YouTube** (`yt-dlp --skip-download --write-subs --write-auto-subs
+     --sub-langs en`); Whisper/Parakeet só sem legenda.
+  2. `ferramentas/clipes/rosto_mapa.py src/video.mp4 clips/rosto.json` → trechos com o apresentador em tela cheia
+     (fora) e no canto (cobertos).
+  3. Folhas de 6 s (`extrair_frames.sh`) + legenda com tempos → para cada deixa da fala PT, o trecho `[ini, fim]` do
+     original que mostra a mesma coisa. Escrever `visual/gerar_visual.py` com `c("deixa", ini, fim)` (modelo:
+     `exemplos/ia-crescendo/gerar_visual.py`): gera `visual/pt-bNN.json` (shot `media` com `.mp4`) e `clips/lista.json`.
+  4. `ferramentas/clipes/cortar.py --src src/video.mp4 --rosto clips/rosto.json --dir clips` → clipes mudos, canto
+     coberto com `delogo`, e `clips/folhaNN.jpg` (início/meio/fim de cada um). **Ler as folhas**: nenhum rosto do autor;
+     aviso de "tela cheia" em página branca é falso positivo, em rosto é ajustar `ini`.
+  5. `build_block.py N --strict` sem avisos (trecho curto congela no último quadro: se acusar > 10 s parado, pôr outro
+     trecho na fala seguinte) → render → folha de 16 quadros do final.
+  Parte da fala que o original não tem (dicas, CTA) usa telas PT ou statement.
+  Caso real: ia-crescendo, 82 trechos, 7min05, https://www.youtube.com/watch?v=Fgfzax3fibo.
+- **`modo aula`** (vídeo longo/didático de slides ou quadro branco): o passo a passo abaixo, explicavideos v2 de sempre.
 - **`modo viral`** (reel, notícia, número; "refaz esse reel", "de forma viral"): mesma entrada (passos 1–8: baixar,
   fatos, roteiro, 1 gravação HeyGen, v1), mas o visual é o **perfil viral** do explicavideos:
   `"profile_visual": "viral"` na config v2 (16:9 e `-916` com `reel_profile`), peças de tela cheia
@@ -58,7 +77,7 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
 5. **Prévia para o dono**: storyboard (cena → fala → prints). Esperar o "pode fazer".
 6. **Config explicavideos**: copiar `modelos/config-v1.json` e `modelos/config-v2.json` para
    `~/projetos/explicavideos/examples/<id>.json` e `<id>-v2.json` (trocar `<ID>`, `<OUT>`, `whisper_prompt`
-   com nomes e termos). `EXPLICAVIDEOS_CONFIG=examples/<id>.json python3 explica.py prepare` → `v1/blocos/`.
+   com nomes e termos). `python3 explica.py --config examples/<id>.json prepare` (o env EXPLICAVIDEOS_CONFIG é ignorado pelo explica.py) → `v1/blocos/`.
    Se o `prepare` recusar ("Generation started…"), rodar `engine/prepare.py` **e** `engine/build_scene_templates.py` (sem os templates o render v1 falha com `templates/pt/scene-01.html` ausente).
 7. **HeyGen pelo estúdio** (após APROVADO_HEYGEN), por bloco, com Xvfb `:99` no ar:
    `DISPLAY=:99 node engine/heygen-studio.mjs --titulo <TÍTULO> --fala-arquivo $OUT/v1/blocos/pt-bNN.txt --perfil ~/.cache/inemaccbot/perfil-heygen --template TEMPLATE-AVATAR16`
