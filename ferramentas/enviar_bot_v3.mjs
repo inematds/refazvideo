@@ -53,9 +53,13 @@ if (!r.ok && reprovado && /button|style|markup/i.test(r.description || '')) {   
 }
 if (!r.ok) throw new Error(`Telegram ${r.error_code} ${r.description}`);
 writeFileSync(receipt, JSON.stringify({ message_id: r.result.message_id, at: new Date().toISOString(), bytes: statSync(file).size }, null, 2));
+// Nei 21/10/2026: o número da mensagem aparece lá (legenda e aviso de fim) e aqui no terminal
+const mid = r.result.message_id;
+const capN = (caption ? caption + '\n' : '') + `msg ${mid}`;
+if (capN.length <= 1024) await fetch(base + 'editMessageCaption', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ chat_id: chat, message_id: mid, caption: capN, ...(r.result.reply_markup ? { reply_markup: r.result.reply_markup } : {}) }) });
 console.log('enviado message_id', r.result.message_id, reprovado ? (fd.has('reply_markup') ? '· 🔴 com botão' : '· 🔴 sem botão (API recusou)') : '');
 // Aviso curto de fim, separado da legenda, para o Nei saber que acabou.
 const oQue = (legenda.split('\n')[0] || basename(file)).slice(0, 200);
-const fim = reprovado ? `🔴 Terminei, mas REPROVADO no QA: ${oQue} — ${qa.motivo}. Publico assim?` : `${qa?.aviso ? '🟡' : '✅'} Terminei: ${oQue}`;
+const fim = reprovado ? `🔴 Terminei, mas REPROVADO no QA (msg ${mid}): ${oQue} — ${qa.motivo}. Publico assim?` : `${qa?.aviso ? '🟡' : '✅'} Terminei: ${oQue} (msg ${mid})`;
 await fetch(base + 'sendMessage', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ chat_id: chat, text: fim }) });
-console.log(`Terminei: enviei ${basename(file)}`);
+console.log(`Terminei: enviei ${basename(file)} (msg ${mid})`);
