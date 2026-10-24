@@ -2,6 +2,7 @@
 
 | data | o que quebrou | proteção |
 |---|---|---|
+| 2026-10-24 | 9:16 viral com peças do explicativo cortou à direita; `foco` de diagrama cortou nó da borda | 9:16 de explicativo: config v2 + `aspect 9:16` sem viral; diagrama com nó em x ≤ 0,2 ou ≥ 0,8 sem `foco`; rótulo do núcleo curto |
 | 2026-10-20 | ia-crescendo: "refazvideo" virou vídeo viral com artes novas e telas redesenhadas; nada das animações e exemplos do original (dono reprovou) + 15 min transcrevendo na CPU com legenda do YT disponível | `modo clipes` como padrão para referência animada: trechos do próprio original (`ferramentas/clipes/`); texto pela legenda do YouTube primeiro |
 | 2026-10-12 | Imagens do Codex saindo amareladas/sépia (REA sem travas: amarelo 22–40 no 16:9, 23–53 no r7e) — prompts pediam "paleta âmbar", "luz dourada", objetos dourados | Prompt de imagem com luz neutra e uma cor de destaque (âmbar só no texto desenhado); depois de gerar, `ferramentas/cor_neutra.py corrigir media/*.png` |
 | 2026-10-12 | Viral (REA na prática): tela de terminal em fundo liso reprovou o `qa_viral` (> 40% de blocos lisos); `foto` com `titulo` sobre imagem com texto grande cobriu legenda e carimbos; carimbo longo em y 0,16 bateu na faixa do topo | Terminal desenhado = janela `rgba(13,17,23,.74)` sobre foto escurecida (medir liso ≤ 0,36 com zoom 1,25 antes do render); `foto` sobre imagem com texto: sem `titulo` nem `tag`; carimbo em y 0,16 só com até ~14 caracteres |

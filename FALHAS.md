@@ -2,6 +2,9 @@
 
 | data | o que quebrou | menor correção | prompt \| infra |
 |---|---|---|---|
+| 2026-10-24 | jogue-fora-skills: 9:16 no perfil `viral` (para ter avatar→PiP) com peças do explicativo (diagrama, statement, counter) cortou tudo à direita e a legenda cobriu a capa | 9:16 de explicativo = mesma config v2 com `"aspect": "9:16"` sem perfil viral (cena no topo, avatar meia tela embaixo); viral só com peças viral | prompt |
+| 2026-10-24 | jogue-fora-skills: `foco` num nó do `diagrama` (zoom 1,16) cortou o nó da esquerda em x 0,16; rótulo `troca` longo vazou do núcleo | sem `foco` quando há nó perto da borda; rótulo do núcleo ≤ 10 caracteres | prompt |
+| 2026-10-24 | clone-viral-hypit: check do v2 reprovou o gancho (título de 27 caracteres em 2 linhas a 150 px sobrepôs o `sub`) | `"size": 92` no hook; proteção: gerar_visual fixar size quando o título passa de ~20 caracteres e houver sub | prompt |
 | 2026-10-24 | clone-viral-hypit: bloco de 4.630 caracteres (max_chars 4700) recusado pelo heygen-studio (teto local 4.500) | max_chars ≤ 4.400 na config; enxuguei o roteiro | prompt |
 | 2026-10-24 | clone-viral-hypit: rosto_mapa.py marca tela cheia em quase todo vídeo de fundo claro (falso positivo) | escolha manual dos trechos pelas folhas de 2 s + rosto vazio; proteção: limiar para fundo claro | infra |
 | 2026-10-12 | google-carbon: 2ª vez o envio do estúdio ficou como Draft ("ID não existe" no baixador) | reenviar com o mesmo título (retomou o rascunho, sem cobrança dupla); falta o guard: o submeter reenviar sozinho 1× quando o baixador sair com "não existe" | infra |
