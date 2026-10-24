@@ -2,6 +2,8 @@
 
 | data | o que quebrou | menor correção | prompt \| infra |
 |---|---|---|---|
+| 2026-10-24 | clone-viral-hypit: bloco de 4.630 caracteres (max_chars 4700) recusado pelo heygen-studio (teto local 4.500) | max_chars ≤ 4.400 na config; enxuguei o roteiro | prompt |
+| 2026-10-24 | clone-viral-hypit: rosto_mapa.py marca tela cheia em quase todo vídeo de fundo claro (falso positivo) | escolha manual dos trechos pelas folhas de 2 s + rosto vazio; proteção: limiar para fundo claro | infra |
 | 2026-10-12 | google-carbon: 2ª vez o envio do estúdio ficou como Draft ("ID não existe" no baixador) | reenviar com o mesmo título (retomou o rascunho, sem cobrança dupla); falta o guard: o submeter reenviar sozinho 1× quando o baixador sair com "não existe" | infra |
 | 2026-10-11 | terafab (16:9+9:16 de 1 gravação): `reel_profile` no config v1 fez o QA de reel reprovar o v1 16:9 (formato/fps/loudness); o --strict do 9:16 reprovou por 23/221 palavras interpoladas (Whisper escreveu "2 %", "200", "16 ,8", "para") | `reel_profile` só no config v2 9:16; reescrever a grafia no `v1/verification/transcript-*.json` (mesmos tempos) antes do `setup_output` | infra |
 | 2026-10-11 | rea-clona-app: heygen-studio.mjs devolveu RESULT após Enviar, mas o vídeo ficou como Draft no estúdio; baixa_blocos falhou 2× com "ID não existe" | depois do envio, conferir em Projetos que o card é "Avatar Video" e não "Draft" (script só leitura `acha_id.mjs` em explica-FnB9tHKBJXQ); reenviar retoma do rascunho | infra |
