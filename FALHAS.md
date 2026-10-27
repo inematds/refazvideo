@@ -2,6 +2,8 @@
 
 | data | o que quebrou | menor correção | prompt \| infra |
 |---|---|---|---|
+| 2026-10-26 | ia-sem-censura: `systemd-run ... python3 baixar_v1.py` sem WorkingDirectory rodou em ~ e falhou ("can't open file") | passar `-p WorkingDirectory=` e caminho absoluto do script no systemd-run | prompt |
+| 2026-10-25 | nao-estamos-prontos: 9:16 720p (5,3 min) saiu com 51 MB e o bot v3 recusou (> 49 MB) | recomprimir o 720p a ~1 Mb/s (ou teto de bitrate no compor916) antes do envio | infra |
 | 2026-10-24 | jogue-fora-skills 9:16: `--thumb` só no `--dry-run`; o publicar com `--plano` gerou outra thumb no Codex (a capa pedida não foi) | repetir `--thumb <capa>` junto com `--plano` no publicar | prompt |
 | 2026-10-24 | jogue-fora-skills: 9:16 no perfil `viral` (para ter avatar→PiP) com peças do explicativo (diagrama, statement, counter) cortou tudo à direita e a legenda cobriu a capa | 9:16 de explicativo = mesma config v2 com `"aspect": "9:16"` sem perfil viral (cena no topo, avatar meia tela embaixo); viral só com peças viral | prompt |
 | 2026-10-24 | jogue-fora-skills: `foco` num nó do `diagrama` (zoom 1,16) cortou o nó da esquerda em x 0,16; rótulo `troca` longo vazou do núcleo | sem `foco` quando há nó perto da borda; rótulo do núcleo ≤ 10 caracteres | prompt |
