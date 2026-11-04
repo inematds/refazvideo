@@ -2,6 +2,9 @@
 
 | data | o que quebrou | menor correção | prompt \| infra |
 |---|---|---|---|
+| 2026-11-04 | refaz YvGXBOx9DCo v2: unit com MemoryMax=16G (receita do COMANDOS) morta por oom-kill no render do b02 (87 clipes 1080p) | rodar o bloco que faltou com MemoryMax=28G; receita poderia subir o teto quando houver muitos clipes | infra |
+| 2026-11-04 | refaz YvGXBOx9DCo: `baixar_v1.py` do inemavox sob systemd-run falhou (`python` inexistente) e, com python3, trouxe só 360p embora o 1080p (137) exista | rodar com python3 e conferir a resolução com ffprobe logo após o download; se < 1080p, `yt-dlp -F` e baixar `137+140` | infra |
+| 2026-10-27 | ia-sem-censura v2: `build_block --strict` recusou a cena 7 (shots fora de ordem: contador "cento e cinco" listado antes do clipe "no LM Studio") | itens de cada cena no `gerar_visual.py` na ordem da fala; o validar_visual poderia checar a ordem das âncoras no texto | prompt |
 | 2026-10-26 | ia-sem-censura: `systemd-run ... python3 baixar_v1.py` sem WorkingDirectory rodou em ~ e falhou ("can't open file") | passar `-p WorkingDirectory=` e caminho absoluto do script no systemd-run | prompt |
 | 2026-10-25 | nao-estamos-prontos: 9:16 720p (5,3 min) saiu com 51 MB e o bot v3 recusou (> 49 MB) | recomprimir o 720p a ~1 Mb/s (ou teto de bitrate no compor916) antes do envio | infra |
 | 2026-10-24 | jogue-fora-skills 9:16: `--thumb` só no `--dry-run`; o publicar com `--plano` gerou outra thumb no Codex (a capa pedida não foi) | repetir `--thumb <capa>` junto com `--plano` no publicar | prompt |
