@@ -81,6 +81,8 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
    verdade + "no inema ponto club", nunca "comenta PALAVRA" nem "me pede o link". Portão antes do avatar:
    `python3 ~/projetos/explicavideos/engine/v2/checar_chamada.py $OUT --roteiro $OUT/roteiro/pt.json --sem-titulo` → `chamada ok`.
    O título do YouTube sai do `nucleo`, sem contagem de inventário.
+   Atenção (não só forma): `python3 ~/projetos/explicavideos/engine/v2/critico_chamada.py $OUT --roteiro $OUT/roteiro/pt.json`
+   (nota ≥ 7 e as 4 perguntas sim; use o `melhorar`, até 2 rodadas; depois siga e mostre a nota no storyboard).
    `labels`: **≤ 4 em `kind: compare`, ≤ 5 nas demais**, curtos. Fecha com CTA "inema ponto club".
 5. **Prévia para o dono**: storyboard (cena → fala → prints). Esperar o "pode fazer".
 6. **Config explicavideos**: copiar `modelos/config-v1.json` e `modelos/config-v2.json` para
