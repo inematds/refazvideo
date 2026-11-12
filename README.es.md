@@ -21,7 +21,7 @@ presentador (HeyGen), las pantallas reales de la referencia con resaltados sincr
 
 > Haz un video nuevo. Tema: \<tema\>. Referencia: \<URL del video\>. No mencionar: \<autor\>. Entrega: bot v3.
 
-El agente sigue el `AGENTS.md` (en portugués): descarga y transcribe la referencia, elige las capturas, escribe el guion,
+El agente sigue el `AGENTS.md` (en portugués): descarga y transcribe la referencia, elige las capturas, escribe la **llamada** (el dolor o deseo de quien ve en los primeros segundos, el nombre del método, el cierre con una pregunta; v1.6.1) y el guion,
 muestra un storyboard para aprobación, genera el avatar en HeyGen **solo después del "adelante"**, renderiza,
 revisa cuadros y entrega (Telegram y/o YouTube). El formulario del pedido está en `modelos/pedido.md`.
 

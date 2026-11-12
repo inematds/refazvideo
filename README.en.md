@@ -21,7 +21,7 @@ Remakes a reference video as an **explainer video in Portuguese**, with the pres
 
 > Make a new video. Subject: \<topic\>. Reference: \<video URL\>. Do not mention: \<author\>. Delivery: bot v3.
 
-The agent follows `AGENTS.md` (in Portuguese): it downloads and transcribes the reference, picks the screenshots, writes the script,
+The agent follows `AGENTS.md` (in Portuguese): it downloads and transcribes the reference, picks the screenshots, writes the **hook** (the viewer’s pain or desire in the first few seconds, the method’s name, the closing question; v1.6.1) and the script,
 shows a storyboard for approval, generates the avatar in HeyGen **only after the "go ahead"**, renders,
 checks frames and delivers (Telegram and/or YouTube). The request form is in `modelos/pedido.md`.
 

@@ -73,6 +73,14 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
    (2052×1080, Excalifont com acentos). Conferir numa folha antes do storyboard. Sem print original → sem webcam para cobrir.
 4. **Roteiro** `roteiro/pt.json`: lista de cenas `{chapter,title,kind,labels,takeaway,source,speech,svg:null}`
    (modelo: `exemplos/decisions-jev/roteiro-pt.json`). Reescrever, não traduzir frase a frase. ~150 palavras/min.
+   **Re-tese da abertura (1.6.1, D20, dono 12/11/2026: "não adianta estar claro e correto se não chama atenção, não mexe
+   na dor ou desejo").** A referência abre do jeito do autor dela (muitas vezes técnico ou de inventário); a abertura do
+   refeito é NOSSA. Antes do roteiro, grave `$OUT/chamada.json` (dor_ou_desejo, quem, nucleo, por_que_importa, metodo,
+   formato; regra `~/projetos/inema-design/regras/chamada.md`): nos primeiros ~15 s a dor ou o desejo de quem assiste, em
+   "você"; com método, o nome dito até ~20 s e no fecho; os termos técnicos ficam no meio, explicados. Fecho: pergunta de
+   verdade + "no inema ponto club", nunca "comenta PALAVRA" nem "me pede o link". Portão antes do avatar:
+   `python3 ~/projetos/explicavideos/engine/v2/checar_chamada.py $OUT --roteiro $OUT/roteiro/pt.json --sem-titulo` → `chamada ok`.
+   O título do YouTube sai do `nucleo`, sem contagem de inventário.
    `labels`: **≤ 4 em `kind: compare`, ≤ 5 nas demais**, curtos. Fecha com CTA "inema ponto club".
 5. **Prévia para o dono**: storyboard (cena → fala → prints). Esperar o "pode fazer".
 6. **Config explicavideos**: copiar `modelos/config-v1.json` e `modelos/config-v2.json` para
