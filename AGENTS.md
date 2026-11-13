@@ -57,6 +57,35 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
   `~/projetos/output/explica-DeQDKiBglmh/` (`visual/viral-pt-b01.json`, `piloto_viral.sh`).
   O TeraFab no modo aula foi reprovado ("apresentação muito ruim"); no viral, aprovado.
 
+## Retenção: gancho primeiro, conteúdo depois (1.7.1, dono 13/11/2026)
+
+Caso: os 3 vídeos do /swarm (`~/projetos/output/explica-swarm-*`). O do lives7 e o do lives4 foram publicados e
+reprovados: "muito fraca, nem eu consigo ficar assistindo". Refazer a referência em PT não basta. O vídeo precisa
+prender a pessoa do primeiro ao último segundo. A pergunta do dono vira o checklist de todo refazvideo:
+
+| Pergunta do dono | Onde entra no vídeo |
+|---|---|
+| "como vc vai fazer eu ter atenção" | gancho 0–5 s: cena de perda ou número antes/depois, nunca conceito |
+| "o que eu vou ganhar ou perder" | 5–20 s, em "você" |
+| "onde está o medo ou a curiosidade" | loop aberto: "no fim eu te conto…" |
+| "tem passo a passo que me mantém" | 3 passos numerados no MESMO exemplo ("passo 1 de 3" na tela) |
+| "promessas que me retêm até o fim" | promessa pequena entre os passos + a prova com número real + o loop fechado |
+| "o CTA me faz querer ser parte da comunidade" | pertencimento: "é isso que a gente faz toda semana no inema ponto club" + catálogo real + pergunta |
+
+O passo 0 passa a ser **pesquisar os ganchos de quem fala do assunto**, antes do roteiro. Levante títulos e a primeira
+fala (0–35 s) dos vídeos mais vistos e grave em `$OUT/ganchos/LISTA.md`. Modelo:
+`~/projetos/output/explica-gemini-swarm/ganchos/LISTA.md`. Use só número nosso ou oficial, nunca o do concorrente.
+
+Regras de visual e portões: `~/projetos/explicavideos/engine/v2/PADRAO-VIRAL.md`, item "Retenção". Em resumo:
+- toda cena com imagem;
+- tela de interface ampliada e legível;
+- texto animado só sobre imagem;
+- avatar em meia tela no gancho;
+- crítico abaixo de 7 = reescrever;
+- área lisa em mais de metade do vídeo = não publicar.
+
+O arco é o mesmo do rtex (`~/projetos/rtex/README.md`, Decisões), esticado para 2–5 min.
+
 ## Passo a passo
 
 1. **Baixar e transcrever a referência** (inemavox):
