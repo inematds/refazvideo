@@ -52,7 +52,7 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
   fatos, roteiro, 1 gravação HeyGen, v1), mas o visual é o **perfil viral** do explicavideos:
   `"profile_visual": "viral"` na config v2 (16:9 e `-916` com `reel_profile`), peças de tela cheia
   (`capa`, `foto`, `capitulo`, `bignum`, `escala`, `barra`, `carimbo`, `cinetica`, `rosto`, `cta`), troca ≤ 2 s,
-  `som_viral.py` (trilha + efeitos locais) e `qa_viral.py` (reprova tela vazia/parada). Regras e contrato:
+  `som_viral.py` (trilha + efeitos locais) e `qa_viral.py` (2.33.12: reprova tela vazia/parada pelo `qa_tecnico.py` e apelo fraco: sem manchete enorme nos 3 primeiros segundos, imagens que não mostram o assunto). Regras e contrato:
   `~/projetos/explicavideos/engine/v2/PADRAO-VIRAL.md`. Molde completo (visual, configs, script):
   `~/projetos/output/explica-DeQDKiBglmh/` (`visual/viral-pt-b01.json`, `piloto_viral.sh`).
   O TeraFab no modo aula foi reprovado ("apresentação muito ruim"); no viral, aprovado.
