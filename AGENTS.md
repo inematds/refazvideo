@@ -12,6 +12,8 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
 - **Sem crédito da fonte** (dono, 08/10/2026: "a gente está construindo tudo e validando"): a fala não cita o autor
   da referência e **nada escrito** no vídeo nem na descrição do YouTube; o takeaway final é a frase-síntese do vídeo.
   Só pôr crédito se o pedido disser explicitamente.
+  **Exceção — teste/experimento de outra pessoa** (dono, 23/11/2026, Nate e os 4 modelos do Claude): a fala abre com
+  "o influenciador <NOME> fez um vídeo testando… e eu analiso aqui com você". O teste não é nosso; nunca narrá-lo como se fosse.
 - **Rosto do apresentador original nunca aparece.** A webcam muda de lugar entre os trechos do vídeo: conferir
   **cada print** e cobrir com `preparar_print.py --cobrir` (modo `linha`, continua o fundo da tela; caixa incluindo a
   sombra). Blur vira mancha; bloco liso fica evidente. Conferir com uma folha dos prints antes do render.
@@ -65,12 +67,19 @@ prender a pessoa do primeiro ao último segundo. A pergunta do dono vira o check
 
 | Pergunta do dono | Onde entra no vídeo |
 |---|---|
-| "como vc vai fazer eu ter atenção" | gancho 0–5 s: cena de perda ou número antes/depois, nunca conceito |
+| "como vc vai fazer eu ter atenção" | gancho 0–5 s: cena de perda ou número antes/depois, nunca conceito. **Vídeo de ferramenta/produto: NÃO** — abre pelo nome do produto + o que é + o maior ganho, depois a lista de benefícios com prova na tela, curto, sem história nem loop (D30, `inema-design/regras/chamada.md` §2e) |
 | "o que eu vou ganhar ou perder" | 5–20 s, em "você" |
 | "onde está o medo ou a curiosidade" | loop aberto: "no fim eu te conto…" |
 | "tem passo a passo que me mantém" | 3 passos numerados no MESMO exemplo ("passo 1 de 3" na tela) |
 | "promessas que me retêm até o fim" | promessa pequena entre os passos + a prova com número real + o loop fechado |
 | "o CTA me faz querer ser parte da comunidade" | pertencimento: "é isso que a gente faz toda semana no inema ponto club" + catálogo real + pergunta |
+
+**Exceção D30 — vídeo de ferramenta/produto (Nei, 24/11/2026).** "as pessoas querem um produto, e aí a solução; você conta
+história no vídeo, eu não acho que isso engaja"; "produtos sempre curto direto sem estórias". Caso OpenBot A/B/C: abriram
+com cena ("você começa o dia caçando tarefas") e o crítico castigava o nome do produto como jargão. Em vídeo de produto:
+`chamada.json` com `"formato": "produto"` (o crítico lê assim), 1ª frase = nome + o que é + ganho, um benefício por frase
+com a tela que prova, sem cena, sem "loop aberto", sem passo a passo longo no short. Capa ≥ 3 s em todo vídeo (o build
+avisa). A tabela acima (cena de perda, loop, passos) é para vídeo de ASSUNTO.
 
 O passo 0 passa a ser **pesquisar os ganchos de quem fala do assunto**, antes do roteiro. Levante títulos e a primeira
 fala (0–35 s) dos vídeos mais vistos e grave em `$OUT/ganchos/LISTA.md`. Modelo:
