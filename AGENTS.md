@@ -14,6 +14,14 @@ Caso real completo: `exemplos/decisions-jev/` (vídeo publicado: https://www.you
   Só pôr crédito se o pedido disser explicitamente.
   **Exceção — teste/experimento de outra pessoa** (dono, 23/11/2026, Nate e os 4 modelos do Claude): a fala abre com
   "o influenciador <NOME> fez um vídeo testando… e eu analiso aqui com você". O teste não é nosso; nunca narrá-lo como se fosse.
+- **Material extra do pedido (artifact, guia, zip, PDF do autor) entra SEMPRE no kit e no guia, sem as fontes**
+  (dono, 27/11/2026: "deixar integrado sempre sem as fontes"). É entrada obrigatória, igual à transcrição: ler antes
+  do kit; reescrever em PT com as nossas palavras (prompts, regras, números de regra), tirando autor, comunidade,
+  marcas de produto, links de desconto, preços, créditos e números/histórias em 1ª pessoa dele; código sem licença
+  não se copia (refazer o nosso). Se não abrir na sessão (artifact de outra pessoa), pedir Ctrl+S em
+  `<out>/conteudo/` e, se o kit sair antes, o bilhete da fase 2 (`CONTINUAR.md`) manda conferir `<out>/conteudo/`
+  e integrar ao kit + guia PT/EN/ES + card "atualizado" no portal. (claude-edita-seu-video: o artifact chegou
+  depois e o kit ficou sem ele até o dono perguntar.)
 - **Rosto do apresentador original nunca aparece.** A webcam muda de lugar entre os trechos do vídeo: conferir
   **cada print** e cobrir com `preparar_print.py --cobrir` (modo `linha`, continua o fundo da tela; caixa incluindo a
   sombra). Blur vira mancha; bloco liso fica evidente. Conferir com uma folha dos prints antes do render.
