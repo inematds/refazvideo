@@ -75,7 +75,7 @@ prender a pessoa do primeiro ao último segundo. A pergunta do dono vira o check
 
 | Pergunta do dono | Onde entra no vídeo |
 |---|---|
-| "como vc vai fazer eu ter atenção" | gancho 0–5 s: cena de perda ou número antes/depois, nunca conceito. **Vídeo de ferramenta/produto: NÃO** — abre pelo nome do produto + o que é + o maior ganho, depois a lista de benefícios com prova na tela, curto, sem história nem loop (D30, `inema-design/regras/chamada.md` §2e) |
+| "como vc vai fazer eu ter atenção" | gancho 0–5 s: cena de perda ou número antes/depois, nunca conceito. **Público que já vive o assunto (lives1/4/7, `publico_ja_sabe: sim`): a dor pelo OUTRO LADO** — "pare de perder tokens", "você ainda usa do jeito antigo", "os engenheiros da Anthropic mostraram como…"; cena de dor só com `por_que_dor` (D32, chamada.md §2f). **Vídeo de ferramenta/produto: NÃO** — abre pelo nome do produto + o que é + o maior ganho, depois a lista de benefícios com prova na tela, curto, sem história nem loop (D30, `inema-design/regras/chamada.md` §2e) |
 | "o que eu vou ganhar ou perder" | 5–20 s, em "você" |
 | "onde está o medo ou a curiosidade" | loop aberto: "no fim eu te conto…" |
 | "tem passo a passo que me mantém" | 3 passos numerados no MESMO exemplo ("passo 1 de 3" na tela) |
@@ -121,8 +121,8 @@ O arco é o mesmo do rtex (`~/projetos/rtex/README.md`, Decisões), esticado par
    (modelo: `exemplos/decisions-jev/roteiro-pt.json`). Reescrever, não traduzir frase a frase. ~150 palavras/min.
    **Re-tese da abertura (1.6.1, D20, dono 12/11/2026: "não adianta estar claro e correto se não chama atenção, não mexe
    na dor ou desejo").** A referência abre do jeito do autor dela (muitas vezes técnico ou de inventário); a abertura do
-   refeito é NOSSA. Antes do roteiro, grave `$OUT/chamada.json` (dor_ou_desejo, quem, nucleo, por_que_importa, metodo,
-   formato; regra `~/projetos/inema-design/regras/chamada.md`): nos primeiros ~15 s a dor ou o desejo de quem assiste, em
+   refeito é NOSSA. Antes do roteiro, grave `$OUT/chamada.json` (publico_ja_sabe, dor_ou_desejo, quem, nucleo, por_que_importa, metodo,
+   formato — `fim_da_perda`/`autoridade` são os formatos de quem já sabe do assunto, D32; regra `~/projetos/inema-design/regras/chamada.md`): nos primeiros ~15 s a dor ou o desejo de quem assiste, em
    "você"; com método, o nome dito até ~20 s e no fecho; os termos técnicos ficam no meio, explicados. Fecho: pergunta de
    verdade + "no inema ponto club", nunca "comenta PALAVRA" nem "me pede o link". Portão antes do avatar:
    `python3 ~/projetos/explicavideos/engine/v2/checar_chamada.py $OUT --roteiro $OUT/roteiro/pt.json --sem-titulo` → `chamada ok`.
