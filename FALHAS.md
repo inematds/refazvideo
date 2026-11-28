@@ -1,7 +1,42 @@
+| 2026-11-28 | avatares.sh do Placar: `"${@:-a b c}"` virou uma palavra só, nada enviado e `mkdir -p $OUT` sem aspas criou pastas soltas no ~ | Padrão com `[ $# -eq 0 ] && set -- a b c` e caminhos entre aspas; conferir o log do 1º ciclo antes de seguir | prompt |
+| 2026-11-27 | Claude App 16:9: render v1 morreu com o processo pai (scope da sessão do continua) e pt-b01 ficou failed | Render em `systemd-run --user --unit` independente; zerar pt-b01 no production.json antes de repetir | infra |
+| 2026-11-27 | Claude App short lives7: prepare sem `--config` caiu na config padrão do OSWork; reenvio do estúdio com mesmo título reabriu o rascunho antigo | `explica.py --config <arquivo>` sempre; título novo (-v2) ao regravar avatar | prompt + infra |
+| 2026-11-23 | Publicação da escada IA estava bloqueada por invalid_grant no lives11 | Teste único de OAuth na retomada confirmou token válido; reutilizados MP4, SRT e plano, publicação 6lvVLvCngJg concluída | infra |
+| 2026-11-22 | Stitch Loop ficou 10,2 s sem troca visual na cena final com o tempo real do avatar | Inserir a cartela de prioridade da lista de espera na deixa já narrada; build estrito sem avisos | prompt |
+| 2026-11-19 | Objeto com object-fit:cover deixou letras do título original na borda dos cartões da Lia | Recortar a área da personagem acima da tarja antes da composição e conferir a ficha | infra |
+| 2026-11-19 | gen:data foi chamado na pasta de produção sem package.json | Executar npm no worktree do portal com cwd explícito; geração passou | prompt |
+| 2026-11-19 | Descrição do kit UI ainda citava 77 arquivos após medição atualizar para 103 sinais | Remover contagem antiga e usar 103 alertas de clique sem teclado, conforme medida.json | prompt |
+| 2026-11-18 | Crítico reprovou fecho do kit UI por não responder onde a interface se entrega | Explicitar valores de fábrica e peças que falham no uso; nova crítica 7 e todas as respostas sim, antes de enviar avatar | prompt |
+| 2026-11-18 | Vídeo A do IA sem estrago (fora-do-volante) saiu do render v2 com o quadro 0 vazio, de novo (já em LICOES 15/11) | Recodificar a entrega com -ss 0.041 na entrada e conferir o quadro 0 antes da fila; falta checagem automática no assemble | infra |
+| 2026-11-17 | QA do refazvideo China não salvou a folha porque a pasta de saída não existia | Criar qa/ antes de executar qa_viral.py; segunda execução aprovada | prompt |
+| 2026-11-17 | Abertura ligava China a copiar e colar sem progressão clara, barrada em escada pelo crítico | Abrir pela proposta comercial e levar o contexto da China para a segunda cena; portão passou com8/8 | prompt |
+| 2026-11-17 | Capa do refazvideo Facebook foi reprovada pelo crítico por pergunta genérica sem informação | Trocar por “China muda cursos. Seu time copia e cola?” e repetir o portão antes do avatar | prompt |
 # FALHAS
+| 2026-11-17 | Mix vertical do caminho-certo também saiu com pico −0,53 dBTP | Aplicar a mesma normalização de áudio em duas passadas; final −14,08 LUFS e −1,37 dBTP | infra |
+| 2026-11-17 | Mix do caminho-certo 16:9 atingiu −0,53 dBTP após AAC | Normalizar áudio em duas passadas a −14 LUFS/−1,5 dBTP; medição final −14,08 LUFS e −1,37 dBTP | infra |
+| 2026-11-17 | Strict do caminho-certo acusou deixa final repetida na cena 3 | Usar a expressão única «daquela pasta» no shot final; strict sem avisos nos dois formatos | prompt |
+| 2026-11-17 | Mix da escada atingiu −0,37 dBTP após AAC, acima do teto −1 dBTP | Normalizar MP4 final em duas passadas a −14 LUFS/−1,5 dBTP e medir após AAC | infra |
+| 2026-11-17 | Visual da escada deixou duas lacunas de ritmo nos shots de rosto | Pontuar com peças em deixas reais, sem contar movimento do rosto como mudança; strict passou nos dois formatos | prompt |
+| 2026-11-16 | Cortes iniciais de Pyl5yyT7h-g incluíam rosto em transições | Encurtar gargalo, processo e SOP após folha de início/meio/fim; recortar câmera lateral | prompt |
 
 | data | o que quebrou | menor correção | prompt \| infra |
 |---|---|---|---|
+| 2026-11-19 | Revisões anteriores do kit UI reprovaram comportamento e números mudaram depois do roteiro | Revisar o kit antes do avatar, congelar medida.json e narrar apenas números estáveis; última nota independente 6, quatro defeitos corrigidos com testes e sem nova rodada | prompt |
+| 2026-11-19 | codex exec de imagem pode travar aguardando entrada | Acrescentar < /dev/null; arte gerada pela assinatura e copiada localmente antes do uso | infra |
+| 2026-11-15 | Áudio do modo clipes saiu em-18,67LUFS porque o motor só normaliza reel | Normalizar entrega em2passadas para-14LUFS e medir de novo; passou-14,31 | infra |
+| 2026-11-15 | HyperFrames exportou3quadros iniciais vazios apesar do snapshot0correto | Estabilizar só os3quadros iniciais no pós-render, preservando timestamps e áudio; nova folha conferida | infra |
+| 2026-11-15 | CSS inline da legenda referenciou MontBlack sem declaração visível ao StaticGuard | @font-face explícito no index e nome da fonte entre aspas; check final passou | prompt |
+| 2026-11-15 | Runner UI esperou mutex de render herdado por outro upload, com GPU livre | Retirar mutex redundante só do runner UI; preservar gpu-fila vaga1 e16G | prompt / infra |
+| 2026-11-15 | Download UI não iniciou porque src/download.log era relativo ao cwd do inemavox | Caminho absoluto do OUT no redirecionamento de log | prompt |
+| 2026-11-14 | swarm3-tecnico (refazer só o avatar): v1 sem `docs/lesson-pt.json` e depois sem `templates/pt/scene-01.html` — a pasta nova foi montada à mão (manifest + blocos) sem o `prepare` | ao clonar uma pasta para trocar só o avatar, copiar `docs/` + assets do `prepare` e rodar `build_scene_templates.py` antes de ligar a cadeia | prompt |
+| 2026-11-13 | 1DamuwTfJa 9:16: de novo `--strict` (8 vãos > 2 s; visual escrito antes do áudio real) e QA de duração (35 s com mini-aula); cinética de 4 palavras cortou "PROGRAMAÇÃO" | `titulo_at` nas fotos + cinéticas nos vãos; `reel_profile` `divulgacao` quando a fala < 45 s (repetiu: pôr como padrão no preparo); `"size": 88` | prompt |
+| 2026-11-13 | 1KXMjGvJ3V 9:16: `--strict` reprovou 5 trechos > 2 s sem troca, e o QA reprovou a duração (38 s com `reel_profile` mini-aula, mínimo 45 s) | cinéticas/bignum extras nos vãos; perfil `divulgacao` (15–59 s) para reel de gancho→prova→CTA | prompt |
+| 2026-11-13 | 1AzRvvF3n5 9:16 (modo clipes): hyperframes check reprovou o hook (título em 2 linhas sobre o `sub`) e os clipes verticais 540x960 saíram miúdos na moldura `media` | `"size": 88` no hook; clipes ampliados por overlay ffmpeg (1080x930 no topo, tempos dos `at` do build) | prompt |
+| 2026-11-09 | site-que-vende: `build_block --strict` reprovou a cena 2 (2,3 s sem troca depois da cinética de abertura) e a cadeia terminou sem vídeo | 3ª palavra na cinética ("É O TEXTO"), apagar `visual/.ritmo-*`, religar | prompt |
+| 2026-11-07 | astra-caixa-preta: build --strict reprovou a cena 8 (cinéticas longas, 2–3,7 s sem troca; ritmo.py não re-enquadra cinética) — 2ª vez no dia | gerar_visual: cinética com no máx. ~2 s entre palavras (dividir em peças); checar strict antes de religar | prompt |
+| 2026-11-07 | gpt-image-26: cadeia reprovou no build --strict v2 (cena 8: 2,7 s sem troca entre o bignum e o ranking; ritmo.py pulou por não haver imagem) | inserir shot curto (cinetica) numa deixa do vão; testar `build_block.py 1 --strict` antes de religar | prompt |
+| 2026-11-07 | gpt-image-26: 2º envio ao estúdio recusado "bloco excede teto local de 4500 caracteres" (subi `max_chars` da config para 4800 para caber num bloco) | `max_chars` ≤ 4500 na config v1; para caber, enxugar a fala | prompt |
+| 2026-11-07 | gpt-image-26: roteiro dizia "2.6 ~4× mais caro no mesmo ajuste" (número do vídeo de referência); a calculadora oficial mostra 4,2× só em low, 3,3× em medium e igual de high para cima — avatar teve de ser refeito | conferir preço/número de terceiro na fonte oficial (até no código da calculadora) ANTES de mandar o avatar | prompt |
 | 2026-11-04 | refaz YvGXBOx9DCo v2: unit com MemoryMax=16G (receita do COMANDOS) morta por oom-kill no render do b02 (87 clipes 1080p) | rodar o bloco que faltou com MemoryMax=28G; receita poderia subir o teto quando houver muitos clipes | infra |
 | 2026-11-04 | refaz YvGXBOx9DCo: `baixar_v1.py` do inemavox sob systemd-run falhou (`python` inexistente) e, com python3, trouxe só 360p embora o 1080p (137) exista | rodar com python3 e conferir a resolução com ffprobe logo após o download; se < 1080p, `yt-dlp -F` e baixar `137+140` | infra |
 | 2026-10-27 | ia-sem-censura v2: `build_block --strict` recusou a cena 7 (shots fora de ordem: contador "cento e cinco" listado antes do clipe "no LM Studio") | itens de cada cena no `gerar_visual.py` na ordem da fala; o validar_visual poderia checar a ordem das âncoras no texto | prompt |
@@ -19,3 +54,10 @@
 | 2026-10-11 | enviar_bot_v3.mjs: vídeo 9:16 (ia-20-novidades) aparecia em moldura 16:9 no Telegram — sendVideo ia sem width/height | ffprobe e envio de width/height/duration no sendVideo | infra |
 | 2026-10-10 | `EXPLICAVIDEOS_CONFIG=... explica.py prepare` ignorou o env e rodou no config padrão (oswork; só não sobrescreveu porque "Generation started" bloqueou); media v2 não aceitava vídeo (pedido: recortes do vídeo no Reels) | usar `explica.py --config examples/<id>.json prepare`; engine v2 2.8: shot `media` aceita `.mp4` curto (`<video id>` estático na cena, poster, mudo) | prompt + infra |
 | 2026-10-09 | render v1 do contexto-portatil falhou (`templates/pt/scene-01.html` ausente): rodei só `engine/prepare.py` quando o `explica.py prepare` recusou, e a espera ficou 2 h porque só olhava a unit `render` E `assemble` | rodar também `build_scene_templates.py`; a espera sai ao ver `"failed"` no `production.json` | prompt |
+
+| 2026-11-15 | Conferência Telegram quebrou em raw_text=None da mensagem de criação do tópico | Normalizar para string vazia antes do join; leitura do tópico e MENU passou com14mensagens | infra |
+
+| 2026-11-15 | Preparação B usou cwd errado e prepare.py não tem --help; proteção de manifesto impediu substituição | Usar OUT absoluto e EXPLICAVIDEOS_CONFIG explícito em todo comando do engine | prompt |
+
+| 2026-11-15 | Botão próprio Sign in withGoogle tinha a camada oficial ContinuarcomGoogle sobreposta | Clicar no botãoGoogle efetivamente visível; seletor corrigido abriu accountchooser e confirmou sessãoGoogle desconectada | infra |
+| 2026-11-18 | Refazvideo MuFkBXycKLQ: clipes do original com texto em inglês passaram no QA do vídeo em português | clipe do original com texto legível em outra língua não entra; trocar por imagem própria com título em PT | prompt |
